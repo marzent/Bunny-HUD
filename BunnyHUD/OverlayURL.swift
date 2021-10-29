@@ -64,6 +64,6 @@ class OverlayURL : Codable {
     
     var computeURL: URL {
         return remote ? URL(string: path + tail)! :
-                        URL(string: path + tail, relativeTo: Bundle.main.url(forResource: "Overlays", withExtension: "")!)!
+                        URL(string: path + tail, relativeTo: Bundle.main.url(forResource: "dist/Overlays", withExtension: "")!)!
     }
 }
