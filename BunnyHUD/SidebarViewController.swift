@@ -16,6 +16,7 @@ class SidebarViewController: NSViewController {
     
     
     override func viewWillAppear() {
+        view.window?.styleMask = [.titled, .resizable, .fullSizeContentView, .closable]
         super.viewWillAppear()
         let toolbar = NSToolbar(identifier: "toolbar")
         toolbar.delegate = self
@@ -192,9 +193,9 @@ extension SidebarViewController: NSToolbarDelegate {
             which is already in the storyboard. Also note that the system automatically places .addItem and .removeItem to the far right.
         */
         var toolbarItemIdentifiers = [NSToolbarItem.Identifier]()
-        if #available(macOS 11.0, *) {
-            toolbarItemIdentifiers.append(.toggleSidebar)
-        }
+//        if #available(macOS 11.0, *) {
+//            toolbarItemIdentifiers.append(.toggleSidebar)
+//        }
         toolbarItemIdentifiers.append(.addItem)
         toolbarItemIdentifiers.append(.removeItem)
         return toolbarItemIdentifiers

@@ -6,6 +6,7 @@ The primary view controller that contains the NSOutlineView and NSTreeController
 */
 
 import Cocoa
+import CEFswift
 
 class OutlineViewController: NSViewController,
                                 NSTextFieldDelegate, // To respond to the text field's edit sending.
@@ -95,14 +96,11 @@ class OutlineViewController: NSViewController,
     private var overlayViewController: OverlaySettingsController!
     private var settingsViewController: NSViewController!
     private var cactbotViewController: NSViewController!
-    private var kagerouViewController: NSViewController!
         
     // MARK: View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Determine the contextual menu for the outline view.
 
         
         // Dragging items out: Set the default operation mask so you can drag (copy) items to outside this app, and delete them in the Trash can.
@@ -129,17 +127,14 @@ class OutlineViewController: NSViewController,
         settingsViewController =
             storyboard!.instantiateController(withIdentifier: "GeneralSettings") as? NSViewController
         settingsViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
         cactbotViewController =
             storyboard!.instantiateController(withIdentifier: "CactbotSettings") as? NSViewController
         cactbotViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        kagerouViewController =
-            storyboard!.instantiateController(withIdentifier: "KagerouSettings") as? NSViewController
-        kagerouViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
        //  Set up observers for the outline view's selection, adding items, and removing items.
         setupObservers()
+        
     }
     
     deinit {
@@ -233,9 +228,6 @@ class OutlineViewController: NSViewController,
         if gsc.getSetting(settingKey: gsc.cactbotKey, defaultValue: false) {
             addNode(Node(title: "Cactbot"))
         }
-        if gsc.getSetting(settingKey: gsc.kagerouKey, defaultValue: false) {
-            addNode(Node(title: "Kagerou"))
-        }
         
         treeController.setSelectionIndexPath(nil) // Start back at the root level.
     }
@@ -263,7 +255,7 @@ class OutlineViewController: NSViewController,
 //                    clickable: false, resizeable: false, draggable: false, hidden: false, background: true, fullscreen: false,zoom: 1.0)
 //        addNode(node)
 
-        
+
         let supportURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last!
         let folderURL = supportURL.appendingPathComponent("Bunny HUD")
         let newPlistURL = folderURL.appendingPathComponent("Overlays.plist")
@@ -503,8 +495,6 @@ class OutlineViewController: NSViewController,
                 } else if node.isSetting {
                     if node.identifier == "settingCactbot" {
                         viewController = cactbotViewController
-                    } else if node.identifier == "settingKagerou" {
-                        viewController = kagerouViewController
                     } else {
                         viewController = settingsViewController
                     }

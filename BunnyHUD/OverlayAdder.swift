@@ -18,27 +18,43 @@ extension OutlineViewController {
         let name = selector
         switch selector {
         case "Kagerou":
-            let url = OverlayURL(modern: false, remote: true, path: "http://unsecure.idyllshi.re/kagerou/overlay")
+            let url = OverlayURL(modern: false, path: "https://hibiyasleep.github.io/kagerou/overlay/")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 600, height: 500))
             addNodeToOverlays(node)
         case "MopiMopi":
-            let url = OverlayURL(modern: false, path: "mopimopi/index.html")
+            let url = OverlayURL(modern: false, path: "https://haeruhaeru.github.io/mopimopi/")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 600, height: 500))
             addNodeToOverlays(node)
+        case "Ember Overlay":
+            let url = OverlayURL(modern: false, path: "https://goldenchrysus.github.io/ffxiv/ember-overlay/")
+            let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 600, height: 400))
+            addNodeToOverlays(node)
+        case "Ember Spell Timers":
+            let url = OverlayURL(modern: false, path: "https://goldenchrysus.github.io/ffxiv/ember-overlay/", options: "&mode=spells")
+            let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 600, height: 400))
+            addNodeToOverlays(node)
+        case "Horizoverlay":
+            let url = OverlayURL(modern: false, path: "https://bsides.github.io/horizoverlay/")
+            let node = Node(title: name, url: url, pos: NSRect(x: screenWidth(percent: 5), y: 0, width: screenWidth(percent: 90), height: 300))
+            addNodeToOverlays(node)
         case "Ikegami":
-            let url = OverlayURL(modern: false, remote: true, path: "http://unsecure.idyllshi.re/ikegami")
-            let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 1900, height: 500))
+            let url = OverlayURL(modern: false, path: "https://idyllshi.re/ikegami/")
+            let node = Node(title: name, url: url, pos: NSRect(x: screenWidth(percent: 5), y: 0, width: screenWidth(percent: 90), height: 500))
+            addNodeToOverlays(node)
+        case "Skyline":
+            let url = OverlayURL(modern: true, path: "https://skyline.dsrkafuu.su")
+            let node = Node(title: name, url: url, pos: NSRect(x: screenWidth(percent: 5), y: 0, width: screenWidth(percent: 90), height: 500))
             addNodeToOverlays(node)
         case "Cactbot Raidboss (Combined Alerts & Timeline)":
-            let url = OverlayURL(modern: true, path: "cactbot/ui/raidboss/raidboss.html")
+            let url = OverlayURL(modern: true, path: "ui/raidboss/raidboss.html", folder: GeneralSettingsController.cactbotFolder)
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 1100, height: 300))
             addNodeToOverlays(node)
         case "Cactbot Raidboss Alerts only":
-            let url = OverlayURL(modern: true, path: "cactbot/ui/raidboss/raidboss.html", options: "&alerts=1&timeline=0")
+            let url = OverlayURL(modern: true, path: "ui/raidboss/raidboss.html", folder: GeneralSettingsController.cactbotFolder, options: "&alerts=1&timeline=0")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 1100, height: 300))
             addNodeToOverlays(node)
         case "Cactbot Raidboss Timeline only":
-            let url = OverlayURL(modern: true, path: "cactbot/ui/raidboss/raidboss.html", options: "&alerts=0&timeline=1")
+            let url = OverlayURL(modern: true, path: "ui/raidboss/raidboss.html", folder: GeneralSettingsController.cactbotFolder, options: "&alerts=0&timeline=1")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 320, height: 220))
             addNodeToOverlays(node)
         case "Cactbot Jobs":
@@ -85,4 +101,16 @@ extension OutlineViewController {
             alert.runModal()
         }
     }
+    
+    private func screenWidth(percent: CGFloat) -> Int{
+        if let screen = NSScreen.main {
+            let rect = screen.frame
+            let width = rect.size.width
+            return Int(width * (percent / 100))
+        }
+        else {
+            return 1000
+        }
+    }
+    
 }

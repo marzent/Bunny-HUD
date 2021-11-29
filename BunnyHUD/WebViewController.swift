@@ -3,45 +3,26 @@ See LICENSE folder for licensing information.
 */
 
 import Cocoa
-import WebKit
+import CEFswift
 
-class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, NSWindowDelegate
-    {
-    var webView: WebDragView!
-    var newWebviewPopupWindow: WKWebView?
-    weak var windowController: NSWindowController?
+class WebViewController: NSViewController, NSWindowDelegate {
+    var cefHandler : CEFHandler = CEFHandler()
+    var windowInfo : CEFWindowInfo = CEFWindowInfo()
+    var cefSettings : CEFBrowserSettings = CEFBrowserSettings()
+    
     @objc var node: Node? {
         didSet {
-            refresh()
             update()
+            refresh()
+            cefHandler.setZoom(level: node!.zoom!)
         }
     }
    
-    
-    override func loadView() {
-        let webConfiguration = WKWebViewConfiguration ()
-        webConfiguration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
-        webConfiguration.preferences.setValue(true, forKey: "javaScriptCanOpenWindowsAutomatically")
-        //webConfiguration.preferences.setValue(true, forKey: "allowsContentJavaScript")
-        webConfiguration.preferences.setValue(true, forKey: "javaScriptEnabled")
-        webConfiguration.preferences.setValue(true, forKey: "developerExtrasEnabled")
-        webConfiguration.mediaTypesRequiringUserActionForPlayback = []
-        webView = WebDragView (frame: CGRect(x:0, y:0, width:800, height:600), configuration:webConfiguration)
-        webView.setValue(false, forKey: "drawsBackground")
-        webView.uiDelegate = self
-        view = webView
-        }
-    
-    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) { completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!)) }
-    
-    func webView(_: WKWebView, createWebViewWith _: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures _: WKWindowFeatures) -> WKWebView? {
-        self.webView?.load(navigationAction.request)
-        return nil
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.navigationDelegate = self
+        cefSettings.localStorage = .enabled
+//        view.wantsLayer = true
+//        view.layer?.backgroundColor = CGColor.init(red: 1, green: 0, blue: 0, alpha: 0.3)
     }
     
     func updateLayout() {
@@ -62,46 +43,47 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         updateLayout()
     }
     
+    func windowWillClose(_ notification: Notification) {
+        cefHandler.close(force: true)
+    }
+    
     override func viewWillAppear() {
         super.viewWillAppear()
         view.window?.isOpaque = false
         view.window?.level = .screenSaver
         //view.window?.isMovableByWindowBackground = true
-        view.window?.titlebarAppearsTransparent = true
-        view.window?.titleVisibility = NSWindow.TitleVisibility.hidden
+        //view.window?.titlebarAppearsTransparent = true
+        //view.window?.titleVisibility = NSWindow.TitleVisibility.hidden
         //view.window?.makeKeyAndOrderFront(self.view.window)
         view.window?.collectionBehavior = .canJoinAllSpaces
         view.window?.delegate = self
-        windowController = view.window?.windowController
-        
     }
     
     func refresh() {
+        windowInfo.setAsChild(of: view as CEFWindowHandle, withRect: view.frame)
         let url = node!.url!.computeURL
-        if node!.url!.remote {
-            let request = URLRequest(url: url)
-            webView.load(request)
-        }
-        else {
-            webView.loadFileURL(url, allowingReadAccessTo: url)
-        }
+        cefHandler.close(force: true)
+        CEFBrowserHost.createBrowser(windowInfo: windowInfo, client: cefHandler, url: url, settings: cefSettings, userInfo: nil, requestContext: nil)
         view.window?.title = node!.title
     }
     
     func update() {
-        webView.pageZoom = node!.zoom!
-        view.window?.ignoresMouseEvents = !node!.clickable!
+        cefHandler.setZoom(level: node!.zoom!)
+        let win = view.window
+        win?.ignoresMouseEvents = !node!.clickable!
         if node!.resizeable! {
-            view.window?.styleMask = [.resizable, .fullSizeContentView, .closable]
+            win?.styleMask = [.resizable, .borderless]
         }
         else {
-            view.window?.styleMask = [.fullSizeContentView, .closable]
+            win?.styleMask = [.borderless]
+        }
+        if node!.draggable! {
+            win?.styleMask.insert(.titled)
         }
         if node!.fullscreen! {
-            node!.pos = view.window?.screen?.frame
+            node!.pos = win?.frame
         }
-        view.window?.setFrame(node!.hidden! ? NSRect.zero : node!.pos!, display: true)
-        webView.draggable = node!.draggable!
+        win?.setFrame(node!.hidden! ? NSRect.zero : node!.pos!, display: true)
         if node!.background! {
             view.window?.backgroundColor = NSColor.init(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         }
@@ -112,14 +94,16 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
     
 }
 
-class WebDragView: WKWebView {
-    
+class DragWindow: NSWindow, NSWindowDelegate {
+
     var draggable = false
     
-    override public func mouseDragged(with event: NSEvent) {
+    override var acceptsFirstResponder: Bool { return true }
+
+    override public func mouseDown(with event: NSEvent) {
         super.mouseDragged(with: event)
         if draggable {
-            window?.performDrag(with: event)
+            performDrag(with: event)
         }
     }
 //    
@@ -132,4 +116,30 @@ class ClickTroughWindow: NSWindow {
 //    override func accessibilityHitTest(_ point: NSPoint) -> Any? {
 //        return nil
 //    }
+}
+
+class CEFHandler: CEFClient, CEFLifeSpanHandler {
+    private var _browser : CEFBrowser?
+    
+    var lifeSpanHandler: CEFLifeSpanHandler? {
+        return self
+    }
+    
+    func onAfterCreated(browser: CEFBrowser) {
+        _browser = browser
+    }
+    
+    func setZoom(level: Double) {
+        _browser?.host?.zoomLevel = level
+    }
+    
+    func onBeforeClose(browser: CEFBrowser) {
+        self.dragHandler
+        _browser = nil
+    }
+    
+    func close(force: Bool) {
+        _browser?.host?.closeBrowser(force: force)
+        
+    }
 }

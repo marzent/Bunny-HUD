@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="19162"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -477,7 +476,7 @@
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="8YG-h5-bhT"/>
                         <splitViewItem holdingPriority="199" id="SFR-40-Ouj"/>
                     </splitViewItems>
-                    <splitView key="splitView" autosaveName="SplitViewAutoSave" vertical="YES" id="t9w-Zo-pSk">
+                    <splitView key="splitView" autosaveName="SplitViewAutoSave" dividerStyle="thin" vertical="YES" id="t9w-Zo-pSk">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
@@ -516,13 +515,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="28" horizontalPageScroll="10" verticalLineScroll="28" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3G-NO-W2G">
-                                <rect key="frame" x="0.0" y="0.0" width="216" height="126"/>
+                                <rect key="frame" x="0.0" y="0.0" width="216" height="77"/>
                                 <clipView key="contentView" drawsBackground="NO" id="6xf-9h-Voy">
-                                    <rect key="frame" x="1" y="1" width="214" height="124"/>
+                                    <rect key="frame" x="1" y="1" width="214" height="75"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="sourceList" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" autosaveName="OutlineView" rowHeight="28" rowSizeStyle="systemDefault" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="13" outlineTableColumn="Wxe-4Z-joe" id="yEO-6h-Slv" customClass="OutlineView" customModule="BunnyHUD" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="214" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="214" height="75"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -649,11 +648,11 @@
             <objects>
                 <viewController storyboardIdentifier="OverlaySettings" id="Kh8-ZR-tgO" userLabel="Overlay Settings" customClass="OverlaySettingsController" customModule="BunnyHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="JUo-S6-Jat">
-                        <rect key="frame" x="0.0" y="0.0" width="605" height="537"/>
+                        <rect key="frame" x="0.0" y="0.0" width="605" height="604"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box fixedFrame="YES" title="Layout" translatesAutoresizingMaskIntoConstraints="NO" id="oBo-J3-7j4">
-                                <rect key="frame" x="17" y="348" width="571" height="169"/>
+                                <rect key="frame" x="17" y="367" width="571" height="169"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="zOl-Fh-TVd">
                                     <rect key="frame" x="3" y="3" width="565" height="151"/>
@@ -747,7 +746,7 @@
                                 </view>
                             </box>
                             <box fixedFrame="YES" title="Behaviour" translatesAutoresizingMaskIntoConstraints="NO" id="bBq-mn-cxQ">
-                                <rect key="frame" x="17" y="196" width="571" height="141"/>
+                                <rect key="frame" x="17" y="215" width="571" height="141"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="vPC-Ny-AO8">
                                     <rect key="frame" x="3" y="3" width="565" height="123"/>
@@ -798,9 +797,9 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rad-s6-c2F">
-                                            <rect key="frame" x="161" y="55" width="89" height="18"/>
+                                            <rect key="frame" x="161" y="55" width="77" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Draggable" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bA3-S3-K2h">
+                                            <buttonCell key="cell" type="check" title="Title Bar" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bA3-S3-K2h">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -823,7 +822,7 @@
                                 </view>
                             </box>
                             <box fixedFrame="YES" title="Zoom" translatesAutoresizingMaskIntoConstraints="NO" id="9Ti-jD-vjc">
-                                <rect key="frame" x="17" y="99" width="571" height="79"/>
+                                <rect key="frame" x="17" y="118" width="571" height="79"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="r1k-RI-eCy">
                                     <rect key="frame" x="3" y="3" width="565" height="61"/>
@@ -841,7 +840,7 @@
                                 </view>
                             </box>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xsz-Ef-KSS">
-                                <rect key="frame" x="13" y="56" width="76" height="32"/>
+                                <rect key="frame" x="13" y="75" width="76" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Nh-ab-PnI">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -852,7 +851,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gl-yk-hfE">
-                                <rect key="frame" x="87" y="56" width="108" height="32"/>
+                                <rect key="frame" x="87" y="75" width="108" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Reset Zoom" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5gk-nL-wRU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -882,7 +881,7 @@
                 </viewController>
                 <customObject id="VjR-RG-xOz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1299.5" y="1075.5"/>
+            <point key="canvasLocation" x="1299.5" y="1109"/>
         </scene>
         <!--Cactbot Settings-->
         <scene sceneID="N3z-w4-lwR">
@@ -891,24 +890,7 @@
                     <view key="view" id="r4c-lb-KVc">
                         <rect key="frame" x="0.0" y="0.0" width="441" height="199"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <wkWebView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6n-PW-FDf">
-                                <rect key="frame" x="0.0" y="0.0" width="441" height="199"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                                <connections>
-                                    <outlet property="UIDelegate" destination="2by-Mt-cjh" id="kTX-Y4-axz"/>
-                                    <outlet property="navigationDelegate" destination="2by-Mt-cjh" id="a4l-a5-4RZ"/>
-                                </connections>
-                            </wkWebView>
-                        </subviews>
                     </view>
-                    <connections>
-                        <outlet property="webView" destination="s6n-PW-FDf" id="mPp-8V-hOa"/>
-                    </connections>
                 </viewController>
                 <customObject id="sB5-8j-doe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -919,11 +901,11 @@
             <objects>
                 <viewController storyboardIdentifier="GeneralSettings" id="59R-M6-dQX" userLabel="General Settings" customClass="GeneralSettingsController" customModule="BunnyHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Rub-de-r3f">
-                        <rect key="frame" x="0.0" y="0.0" width="552" height="354"/>
+                        <rect key="frame" x="0.0" y="0.0" width="552" height="653"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box fixedFrame="YES" title="Networking" translatesAutoresizingMaskIntoConstraints="NO" id="ZWs-4i-Rb0">
-                                <rect key="frame" x="17" y="221" width="518" height="113"/>
+                                <rect key="frame" x="17" y="471" width="518" height="113"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="S8y-IM-q2l">
                                     <rect key="frame" x="3" y="3" width="512" height="95"/>
@@ -948,7 +930,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHI-iI-7mV">
-                                            <rect key="frame" x="128" y="56" width="148" height="21"/>
+                                            <rect key="frame" x="128" y="56" width="173" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="127.0.0.1" drawsBackground="YES" id="95l-EY-jNS">
                                                 <font key="font" metaFont="system"/>
@@ -960,7 +942,7 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7w-4J-D1l">
-                                            <rect key="frame" x="128" y="25" width="148" height="21"/>
+                                            <rect key="frame" x="128" y="25" width="173" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="10501" drawsBackground="YES" id="k1j-jt-DNS">
                                                 <font key="font" metaFont="system"/>
@@ -974,40 +956,8 @@
                                     </subviews>
                                 </view>
                             </box>
-                            <box fixedFrame="YES" title="Ovelay Settings (requires resatrt)" translatesAutoresizingMaskIntoConstraints="NO" id="t4e-2u-uIr">
-                                <rect key="frame" x="17" y="140" width="518" height="77"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <view key="contentView" id="AaK-xu-67x">
-                                    <rect key="frame" x="3" y="3" width="512" height="59"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQE-5R-a0Z">
-                                            <rect key="frame" x="18" y="22" width="75" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Cactbot" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fM1-QS-5Gr">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="update:" target="59R-M6-dQX" id="0lJ-Bn-lUU"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b8R-Bf-mNm">
-                                            <rect key="frame" x="145" y="22" width="77" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Kagerou" bezelStyle="regularSquare" imagePosition="left" inset="2" id="0kW-rd-OVc">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="update:" target="59R-M6-dQX" id="u3D-md-GnH"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                            </box>
                             <box fixedFrame="YES" title="Start Up" translatesAutoresizingMaskIntoConstraints="NO" id="Kbl-ZS-BJW">
-                                <rect key="frame" x="17" y="59" width="518" height="77"/>
+                                <rect key="frame" x="17" y="258" width="518" height="77"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="g4Q-fQ-D4P">
                                     <rect key="frame" x="3" y="3" width="512" height="59"/>
@@ -1027,31 +977,72 @@
                                     </subviews>
                                 </view>
                             </box>
+                            <box fixedFrame="YES" title="Cactbot Settings" translatesAutoresizingMaskIntoConstraints="NO" id="t4e-2u-uIr">
+                                <rect key="frame" x="17" y="352" width="518" height="115"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="AaK-xu-67x">
+                                    <rect key="frame" x="3" y="3" width="512" height="97"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQE-5R-a0Z">
+                                            <rect key="frame" x="18" y="60" width="75" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Enabled" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fM1-QS-5Gr">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="update:" target="59R-M6-dQX" id="0lJ-Bn-lUU"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G3z-53-qlJ">
+                                            <rect key="frame" x="18" y="0.0" width="476" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" title="Big ass text tstring" id="hQl-NH-d9Y">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMl-xm-yCy">
+                                            <rect key="frame" x="122" y="52" width="184" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Select Installation Folder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oL8-nD-gWF">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="setFolder:" target="59R-M6-dQX" id="UO4-FA-ZOk"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                            </box>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="cactbot" destination="FQE-5R-a0Z" id="Vu3-WR-1QP"/>
+                        <outlet property="cactbotFolder" destination="G3z-53-qlJ" id="Dlh-vQ-6G8"/>
                         <outlet property="hidden" destination="M93-qx-EUz" id="eFp-oS-nyA"/>
                         <outlet property="ipField" destination="JHI-iI-7mV" id="5bE-Wx-7Ta"/>
-                        <outlet property="kagerou" destination="b8R-Bf-mNm" id="UuN-7o-ig2"/>
                         <outlet property="portField" destination="F7w-4J-D1l" id="laT-yp-kte"/>
                     </connections>
                 </viewController>
                 <customObject id="uH1-6G-Tcm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1299" y="544"/>
+            <point key="canvasLocation" x="1916" y="1133.5"/>
         </scene>
         <!--Overlay Renderer-->
         <scene sceneID="nZp-te-wor">
             <objects>
                 <windowController storyboardIdentifier="OverlayWindow" id="Jz1-c6-OYG" userLabel="Overlay Renderer" sceneMemberID="viewController">
-                    <window key="window" title="Overlay" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="4MY-9Z-HXg" customClass="ClickTroughWindow" customModule="BunnyHUD" customModuleProvider="target">
+                    <window key="window" title="Overlay" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="4MY-9Z-HXg" customClass="DragWindow" customModule="BunnyHUD" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="425" y="462" width="480" height="270"/>
+                        <rect key="contentRect" x="425" y="462" width="200" height="200"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
                         <view key="contentView" id="FnO-SK-TSb">
-                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
                         <connections>
@@ -1071,8 +1062,8 @@
             <objects>
                 <viewController id="kVd-8O-3bm" customClass="WebViewController" customModule="BunnyHUD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="4XH-s8-kXv">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
                 </viewController>
                 <customObject id="IFc-gl-dXp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1177,7 +1168,11 @@ Gw
                                         <items>
                                             <menuItem title="Kagerou" state="on" id="Vy3-OS-dmY"/>
                                             <menuItem title="MopiMopi" id="PMT-pX-oRe"/>
+                                            <menuItem title="Ember Overlay" id="1YQ-ed-dY7"/>
+                                            <menuItem title="Ember Spell Timers" id="QJd-Lp-GOD"/>
+                                            <menuItem title="Horizoverlay" id="0gm-Wz-uYo"/>
                                             <menuItem title="Ikegami" id="sFV-rh-heR"/>
+                                            <menuItem title="Skyline" id="cW9-rs-Eiu"/>
                                             <menuItem title="Enmity (Relative Values)" id="IgI-WS-uP6"/>
                                             <menuItem title="Enmity (Absolute Values)" id="SnU-Kx-Fst"/>
                                             <menuItem title="Basic RainbowMage" id="xba-C5-rMv"/>
@@ -1212,36 +1207,6 @@ Gw
                 <customObject id="pW0-Va-nGN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-939" y="585.5"/>
-        </scene>
-        <!--Kagerou Settings-->
-        <scene sceneID="wmi-y1-qDa">
-            <objects>
-                <viewController storyboardIdentifier="KagerouSettings" id="uo2-zb-0Vm" userLabel="Kagerou Settings" customClass="KagerouConfig" customModule="BunnyHUD" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="rDo-7r-QNY">
-                        <rect key="frame" x="0.0" y="0.0" width="441" height="199"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <wkWebView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R6m-vV-dHm">
-                                <rect key="frame" x="0.0" y="0.0" width="441" height="199"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                                <connections>
-                                    <outlet property="UIDelegate" destination="uo2-zb-0Vm" id="6Gf-25-41N"/>
-                                    <outlet property="navigationDelegate" destination="uo2-zb-0Vm" id="xJA-GH-Q0b"/>
-                                </connections>
-                            </wkWebView>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <outlet property="webView" destination="R6m-vV-dHm" id="Vg1-tJ-LIt"/>
-                    </connections>
-                </viewController>
-                <customObject id="RRb-fJ-Pyd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1218" y="1845"/>
         </scene>
     </scenes>
     <resources>

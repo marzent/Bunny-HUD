@@ -4,31 +4,20 @@ See LICENSE folder for licensing information.
 
 
 import Cocoa
+import CEFswift
 import WebKit
 
-class CactbotConfig: NSViewController, WKUIDelegate, WKNavigationDelegate {
-    @IBOutlet weak var webView: WKWebView!
+class CactbotConfig: NSViewController{
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-        let url = OverlayURL(modern: true, path: "cactbot/ui/config/config.html").computeURL
-        webView.loadFileURL(url, allowingReadAccessTo: url)
-    }
-}
-
-class KagerouConfig: NSViewController, WKUIDelegate, WKNavigationDelegate {
-    @IBOutlet weak var webView: WKWebView!
-    
-    override func viewDidLoad() {
         super.viewDidLoad()
-        
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-        let url = OverlayURL(modern: true, remote: true, path: "http://unsecure.idyllshi.re/kagerou/config").computeURL
-        let request = URLRequest(url: url)
-        webView.load(request)
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor.blue.cgColor
+        var windowInfo = CEFWindowInfo()
+        windowInfo.setAsChild(of: view as CEFWindowHandle, withRect: view.frame)
+        let cefSettings = CEFBrowserSettings()
+        let url = OverlayURL(modern: true, path: "ui/config/config.html", folder: GeneralSettingsController.cactbotFolder).computeURL
+        CEFBrowserHost.createBrowser(windowInfo: windowInfo, client: nil, url: url, settings: cefSettings, userInfo: nil, requestContext: nil)
     }
 }
