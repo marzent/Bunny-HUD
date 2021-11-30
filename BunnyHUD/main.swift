@@ -30,7 +30,16 @@ class CEFApplication: NSApplication, CefAppProtocol {
 let app = CEFApplication.shared
 let args = CEFMainArgs(arguments: CommandLine.arguments + ["--use-mock-keychain", "--autoplay-policy=no-user-gesture-required"])
 var settings = CEFSettings()
-settings.cachePath = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last!.appendingPathComponent("Bunny HUD/Cache").absoluteString
+let applicationSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last!
+settings.cachePath = applicationSupport.appendingPathComponent("Bunny HUD/Cache").path
+if !FileManager.default.fileExists(atPath: settings.cachePath) {
+    do {
+        try FileManager.default.createDirectory(atPath: settings.cachePath, withIntermediateDirectories: true, attributes: nil)
+    }
+    catch {
+        print(error.localizedDescription)
+    }
+}
 settings.persistSessionCookies = true
 settings.persistUserPreferences = true
 _ = CEFProcessUtils.initializeMain(with: args, settings: settings)
