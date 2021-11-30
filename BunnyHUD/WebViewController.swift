@@ -14,7 +14,6 @@ class WebViewController: NSViewController, NSWindowDelegate {
         didSet {
             update()
             refresh()
-            cefHandler.setZoom(level: node!.zoom!)
         }
     }
    
@@ -60,8 +59,13 @@ class WebViewController: NSViewController, NSWindowDelegate {
     }
     
     func refresh() {
-        windowInfo.setAsChild(of: view as CEFWindowHandle, withRect: view.frame)
         let url = node!.url!.computeURL
+        if let browser = cefHandler.browser {
+            browser.mainFrame?.loadURL(url)
+            browser.reload()
+            return
+        }
+        windowInfo.setAsChild(of: view as CEFWindowHandle, withRect: view.frame)
         cefHandler.close(force: true)
         CEFBrowserHost.createBrowser(windowInfo: windowInfo, client: cefHandler, url: url, settings: cefSettings, userInfo: nil, requestContext: nil)
         view.window?.title = node!.title
@@ -119,27 +123,29 @@ class ClickTroughWindow: NSWindow {
 }
 
 class CEFHandler: CEFClient, CEFLifeSpanHandler {
-    private var _browser : CEFBrowser?
+    var browser : CEFBrowser?
+    private var zoom : Double = 0
     
     var lifeSpanHandler: CEFLifeSpanHandler? {
         return self
     }
     
     func onAfterCreated(browser: CEFBrowser) {
-        _browser = browser
+        self.browser = browser
+        setZoom(level: zoom)
     }
     
     func setZoom(level: Double) {
-        _browser?.host?.zoomLevel = level
+        zoom = level
+        browser?.host?.zoomLevel = level
     }
     
     func onBeforeClose(browser: CEFBrowser) {
-        self.dragHandler
-        _browser = nil
+        self.browser = nil
     }
     
     func close(force: Bool) {
-        _browser?.host?.closeBrowser(force: force)
+        browser?.host?.closeBrowser(force: force)
         
     }
 }

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		muSCu92MmJ472wCzNiU4Ew/n5ME=
+		Vx7T2amxgOsjEyDv4FdKrSW2jUM=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -15,11 +15,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qsxZowmV4wzBIN5udscoG2asxAc=
+			NsYng2RV8UhyBV0F5U1JuOSEVys=
 			</data>
 			<key>hash2</key>
 			<data>
-			ESHqmonbU4KZC2jHyr/uJEIlAdnJ+2pqwQP5rtjeBL4=
+			suzosDb1oD46o1bTXvA8FWDsAQPDJjUUzP0AH1Xapyo=
 			</data>
 		</dict>
 		<key>Headers/CEFswift.h</key>
@@ -59,22 +59,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1OZBOhogxx4FXYsS6skbSP7eR/k=
+			dOU7A0VWPhPDwVXvJOdYdYhEvEo=
 			</data>
 			<key>hash2</key>
 			<data>
-			WymcRaBysxJ/ZRhOZq5885J9xvv63eIyQj8xaDIdHGM=
+			kXqLvp3fSNqnjk2mIRg+cIyW8a3GCivUofzq0bwjEQ8=
 			</data>
 		</dict>
 		<key>Modules/CEFswift.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1OZBOhogxx4FXYsS6skbSP7eR/k=
+			dOU7A0VWPhPDwVXvJOdYdYhEvEo=
 			</data>
 			<key>hash2</key>
 			<data>
-			WymcRaBysxJ/ZRhOZq5885J9xvv63eIyQj8xaDIdHGM=
+			kXqLvp3fSNqnjk2mIRg+cIyW8a3GCivUofzq0bwjEQ8=
 			</data>
 		</dict>
 		<key>Modules/CEFswift.swiftmodule/arm64-apple-macos.swiftdoc</key>
@@ -125,44 +125,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nD6LgnNlPgni8a8+bnl4KSX7g6k=
+			du3HIlqNjFhVrm9S5671JlYAf5A=
 			</data>
 			<key>hash2</key>
 			<data>
-			QnzW9cAujFVZLB+Cwk3RMKkXnAsfnj9tvqbqRf3j69U=
+			mLSgqe+iyMk9VsZ46m9IA5p8/2U5NopLjHKtEfREIz8=
 			</data>
 		</dict>
 		<key>Modules/CEFswift.swiftmodule/x86_64-apple-macos.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KdGOt/+GnjqhivkblI6SCx40ia4=
+			uUiFgl7omxdhsz5VLEfGJOK0sAc=
 			</data>
 			<key>hash2</key>
 			<data>
-			A9Fjmy5+gcECOD0MfEzkw9mZDv7TwITofAwiyMUPIkU=
+			w0iBdg4MFkt/vn/r4WNKu+5mkRbAky5zvJmvk5HysEI=
 			</data>
 		</dict>
 		<key>Modules/CEFswift.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			nD6LgnNlPgni8a8+bnl4KSX7g6k=
+			du3HIlqNjFhVrm9S5671JlYAf5A=
 			</data>
 			<key>hash2</key>
 			<data>
-			QnzW9cAujFVZLB+Cwk3RMKkXnAsfnj9tvqbqRf3j69U=
+			mLSgqe+iyMk9VsZ46m9IA5p8/2U5NopLjHKtEfREIz8=
 			</data>
 		</dict>
 		<key>Modules/CEFswift.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KdGOt/+GnjqhivkblI6SCx40ia4=
+			uUiFgl7omxdhsz5VLEfGJOK0sAc=
 			</data>
 			<key>hash2</key>
 			<data>
-			A9Fjmy5+gcECOD0MfEzkw9mZDv7TwITofAwiyMUPIkU=
+			w0iBdg4MFkt/vn/r4WNKu+5mkRbAky5zvJmvk5HysEI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -180,11 +180,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			muSCu92MmJ472wCzNiU4Ew/n5ME=
+			Vx7T2amxgOsjEyDv4FdKrSW2jUM=
 			</data>
 			<key>hash2</key>
 			<data>
-			gfqIlTp5ym1FiQzupn9P3ubfVb5KjcIzUIx71Ss0uV0=
+			zatHt4pf2KFxeqFhIshitLLkax2PcTbiLn+cGz4ZABQ=
 			</data>
 		</dict>
 	</dict>

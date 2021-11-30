@@ -46,8 +46,8 @@
             filePath = "BunnyHUD/WebViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "mouseDown(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "BunnyHUD/WebViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "mouseDown(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -87,38 +87,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B3D43A14-AEA4-48FE-AA83-3D46C9D666B8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BunnyHUD/WebViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "setZoom(level:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2CF30D65-26C7-4F28-B2FC-338EFB7A530A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BunnyHUD/WebViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "close(force:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D4B8ABEA-C073-4710-AF93-F75355E09F52"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -130,6 +98,69 @@
             endingLineNumber = "45"
             landmarkName = "unknown"
             landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE4797C0-7006-442D-8E07-C90A65FCA83A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Documents/xcode/HUDOverlayMac_/Carthage/Checkouts/CEF.swift/CEF.swift/Proxies/CEFBrowserHost.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "zoomLevel"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "FE4797C0-7006-442D-8E07-C90A65FCA83A - e8c282a74d29e7e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CEFswift.CEFBrowserHost.zoomLevel.setter : Swift.Double"
+                  moduleName = "CEFswift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marc_aurel/Documents/xcode/HUDOverlayMac_/Carthage/Checkouts/CEF.swift/CEF.swift/Core/CEFBase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "7">
+               </Location>
+               <Location
+                  uuid = "FE4797C0-7006-442D-8E07-C90A65FCA83A - 5123bb0484999a79"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CEFswift.CEFBrowserHost.zoomLevel.modify : Swift.Double with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "CEFswift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marc_aurel/Documents/xcode/HUDOverlayMac_/Carthage/Checkouts/CEF.swift/CEF.swift/Proxies/CEFBrowserHost.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "188"
+                  endingLineNumber = "188"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  uuid = "FE4797C0-7006-442D-8E07-C90A65FCA83A - e8c282a74d29e7e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CEFswift.CEFBrowserHost.zoomLevel.setter : Swift.Double"
+                  moduleName = "CEFswift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marc_aurel/Documents/xcode/HUDOverlayMac_/Carthage/Checkouts/CEF.swift/CEF.swift/Core/CEFBase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -71,7 +71,7 @@ class OverlaySettingsController: NSViewController {
     }
     
     @IBAction func resetZoom(_ sender: Any) {
-        zoom.floatValue = 1.0
+        zoom.floatValue = 0.0
         node!.zoom = CGFloat(zoom.floatValue)
         overlayController?.update()
         NotificationCenter.default.post(name: Notification.Name(NotificationNames.nodeChanged), object: nil)

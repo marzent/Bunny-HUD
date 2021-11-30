@@ -64,7 +64,7 @@ class Node: NSObject, Codable {
         self.hidden = false
         self.background = true
         self.fullscreen = false
-        self.zoom = 1.0
+        self.zoom = 0.0
     }
     
     convenience init (title: String) {

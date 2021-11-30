@@ -30,8 +30,17 @@ class OutlineViewController: NSViewController,
     }
     
     @IBAction func reloadOverlays(_: AnyObject) {
-        removeWindow(item: overlayRootNode)
-        newOverlayWindow(node: overlayRootNode)
+        reloadOverlay(item: overlayRootNode)
+    }
+    
+    private func reloadOverlay(item: Node) {
+        if item.isDirectory {
+            for child in item.children {
+                reloadOverlay(item: child)
+            }
+        } else if item.isOverlay {
+            self.overlayControllers[item.identifier]?.refresh()
+        }
     }
     
     private func newOverlayWindow(node: Node) {
