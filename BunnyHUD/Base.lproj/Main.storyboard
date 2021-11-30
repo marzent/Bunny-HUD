@@ -515,13 +515,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="28" horizontalPageScroll="10" verticalLineScroll="28" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3G-NO-W2G">
-                                <rect key="frame" x="0.0" y="0.0" width="216" height="77"/>
+                                <rect key="frame" x="0.0" y="0.0" width="216" height="67"/>
                                 <clipView key="contentView" drawsBackground="NO" id="6xf-9h-Voy">
-                                    <rect key="frame" x="1" y="1" width="214" height="75"/>
+                                    <rect key="frame" x="1" y="1" width="214" height="65"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="sourceList" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" autosaveName="OutlineView" rowHeight="28" rowSizeStyle="systemDefault" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="13" outlineTableColumn="Wxe-4Z-joe" id="yEO-6h-Slv" customClass="OutlineView" customModule="BunnyHUD" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="214" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="214" height="65"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -626,7 +626,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="E3G-NO-W2G" secondAttribute="bottom" id="9m3-jv-kvx"/>
-                            <constraint firstItem="E3G-NO-W2G" firstAttribute="top" secondItem="1wy-t2-gqm" secondAttribute="top" id="R3d-Wm-Nv0"/>
+                            <constraint firstItem="E3G-NO-W2G" firstAttribute="top" secondItem="1wy-t2-gqm" secondAttribute="top" constant="-5" id="R3d-Wm-Nv0"/>
                             <constraint firstItem="E3G-NO-W2G" firstAttribute="leading" secondItem="1wy-t2-gqm" secondAttribute="leading" id="gag-l3-JQX"/>
                             <constraint firstAttribute="trailing" secondItem="E3G-NO-W2G" secondAttribute="trailing" id="n3Q-of-uoD"/>
                         </constraints>
@@ -890,7 +890,21 @@
                     <view key="view" id="r4c-lb-KVc">
                         <rect key="frame" x="0.0" y="0.0" width="441" height="199"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="pNh-A6-a3d">
+                                <rect key="frame" x="0.0" y="0.0" width="441" height="149"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pNh-A6-a3d" secondAttribute="trailing" id="3ys-ch-58N"/>
+                            <constraint firstAttribute="bottom" secondItem="pNh-A6-a3d" secondAttribute="bottom" id="AHU-2Y-Rvu"/>
+                            <constraint firstItem="pNh-A6-a3d" firstAttribute="top" secondItem="r4c-lb-KVc" secondAttribute="top" constant="50" id="TTw-u2-xan"/>
+                            <constraint firstItem="pNh-A6-a3d" firstAttribute="leading" secondItem="r4c-lb-KVc" secondAttribute="leading" id="hDs-8p-om6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="browserView" destination="pNh-A6-a3d" id="E0G-g4-fcu"/>
+                    </connections>
                 </viewController>
                 <customObject id="sB5-8j-doe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
