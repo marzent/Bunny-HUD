@@ -1,0 +1,11 @@
+framework module CEFswift {
+  umbrella header "CEFswift.h"
+
+  export *
+  module * { export * }
+}
+
+module CEFswift.Swift {
+    header "CEFswift-Swift.h"
+    requires objc
+}
