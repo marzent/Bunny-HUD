@@ -2,4 +2,4 @@
 
  Creates Overlay Windows meant to be used in conjunction with OverlayPlugin
 
-<img src="https://imgur.com/aMzh8DV.png">
+<img src="https://imgur.com/S1UAMoA.png">
