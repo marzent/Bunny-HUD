@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -515,19 +515,19 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="28" horizontalPageScroll="10" verticalLineScroll="28" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3G-NO-W2G">
-                                <rect key="frame" x="0.0" y="0.0" width="216" height="64"/>
+                                <rect key="frame" x="0.0" y="0.0" width="366" height="37"/>
                                 <clipView key="contentView" drawsBackground="NO" id="6xf-9h-Voy">
-                                    <rect key="frame" x="1" y="1" width="214" height="62"/>
+                                    <rect key="frame" x="1" y="1" width="364" height="35"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="sourceList" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" autosaveName="OutlineView" rowHeight="28" rowSizeStyle="systemDefault" viewBased="YES" floatsGroupRows="NO" indentationPerLevel="13" outlineTableColumn="Wxe-4Z-joe" id="yEO-6h-Slv" customClass="OutlineView" customModule="BunnyHUD" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="214" height="62"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="364" height="35"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="0.0"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="182" minWidth="16" maxWidth="1000" id="Wxe-4Z-joe">
+                                                <tableColumn width="332" minWidth="16" maxWidth="1000" id="Wxe-4Z-joe">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -540,11 +540,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="GroupCell" id="F1D-D9-k2O">
-                                                            <rect key="frame" x="11" y="0.0" width="191" height="17"/>
+                                                            <rect key="frame" x="11" y="0.0" width="341" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TBP-w4-4k9">
-                                                                    <rect key="frame" x="0.0" y="2" width="191" height="14"/>
+                                                                    <rect key="frame" x="0.0" y="2" width="341" height="14"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="HEADER CELL" id="BN2-Uf-jvH">
                                                                         <font key="font" metaFont="smallSystemBold"/>
                                                                         <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -562,7 +562,7 @@
                                                             </connections>
                                                         </tableCellView>
                                                         <tableCellView identifier="MainCell" id="MMX-NB-doO">
-                                                            <rect key="frame" x="11" y="17" width="191" height="17"/>
+                                                            <rect key="frame" x="11" y="17" width="341" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <imageView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ry-Up-iQ0">
@@ -598,7 +598,7 @@
                                                             </connections>
                                                         </tableCellView>
                                                         <customView identifier="Separator" id="8qr-nX-cNh" userLabel="Separator View" customClass="SeparatorView" customModule="SourceView">
-                                                            <rect key="frame" x="11" y="34" width="191" height="2"/>
+                                                            <rect key="frame" x="11" y="34" width="341" height="2"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                         </customView>
                                                     </prototypeCellViews>
@@ -808,9 +808,9 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yA2-1e-aKc">
-                                            <rect key="frame" x="161" y="24" width="99" height="18"/>
+                                            <rect key="frame" x="161" y="24" width="51" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Background" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qzP-ki-IFG">
+                                            <buttonCell key="cell" type="check" title="Blur" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qzP-ki-IFG">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -970,8 +970,29 @@
                                     </subviews>
                                 </view>
                             </box>
+                            <box fixedFrame="YES" title="Cactbot Settings" translatesAutoresizingMaskIntoConstraints="NO" id="t4e-2u-uIr">
+                                <rect key="frame" x="17" y="392" width="518" height="75"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="AaK-xu-67x">
+                                    <rect key="frame" x="3" y="3" width="512" height="57"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQE-5R-a0Z">
+                                            <rect key="frame" x="18" y="20" width="75" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Enabled" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fM1-QS-5Gr">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="update:" target="59R-M6-dQX" id="0lJ-Bn-lUU"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                            </box>
                             <box fixedFrame="YES" title="Start Up" translatesAutoresizingMaskIntoConstraints="NO" id="Kbl-ZS-BJW">
-                                <rect key="frame" x="17" y="258" width="518" height="77"/>
+                                <rect key="frame" x="17" y="311" width="518" height="77"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="g4Q-fQ-D4P">
                                     <rect key="frame" x="3" y="3" width="512" height="59"/>
@@ -991,52 +1012,10 @@
                                     </subviews>
                                 </view>
                             </box>
-                            <box fixedFrame="YES" title="Cactbot Settings" translatesAutoresizingMaskIntoConstraints="NO" id="t4e-2u-uIr">
-                                <rect key="frame" x="17" y="352" width="518" height="115"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <view key="contentView" id="AaK-xu-67x">
-                                    <rect key="frame" x="3" y="3" width="512" height="97"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQE-5R-a0Z">
-                                            <rect key="frame" x="18" y="60" width="75" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Enabled" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fM1-QS-5Gr">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="update:" target="59R-M6-dQX" id="0lJ-Bn-lUU"/>
-                                            </connections>
-                                        </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G3z-53-qlJ">
-                                            <rect key="frame" x="18" y="0.0" width="476" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" title="Big ass text tstring" id="hQl-NH-d9Y">
-                                                <font key="font" usesAppearanceFont="YES"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMl-xm-yCy">
-                                            <rect key="frame" x="122" y="52" width="184" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Select Installation Folder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oL8-nD-gWF">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="setFolder:" target="59R-M6-dQX" id="UO4-FA-ZOk"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                            </box>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="cactbot" destination="FQE-5R-a0Z" id="Vu3-WR-1QP"/>
-                        <outlet property="cactbotFolder" destination="G3z-53-qlJ" id="Dlh-vQ-6G8"/>
                         <outlet property="hidden" destination="M93-qx-EUz" id="eFp-oS-nyA"/>
                         <outlet property="ipField" destination="JHI-iI-7mV" id="5bE-Wx-7Ta"/>
                         <outlet property="portField" destination="F7w-4J-D1l" id="laT-yp-kte"/>
@@ -1050,7 +1029,7 @@
         <scene sceneID="nZp-te-wor">
             <objects>
                 <windowController storyboardIdentifier="OverlayWindow" id="Jz1-c6-OYG" userLabel="Overlay Renderer" sceneMemberID="viewController">
-                    <window key="window" title="Overlay" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="4MY-9Z-HXg" customClass="DragWindow" customModule="BunnyHUD" customModuleProvider="target">
+                    <window key="window" title="Overlay" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" visibleAtLaunch="NO" appearanceType="darkAqua" frameAutosaveName="" animationBehavior="default" id="4MY-9Z-HXg" customClass="DragWindow" customModule="BunnyHUD" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="425" y="462" width="200" height="200"/>
@@ -1078,7 +1057,16 @@
                     <view key="view" id="4XH-s8-kXv">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView fixedFrame="YES" blendingMode="behindWindow" material="HUDWindow" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="5zZ-Cp-eq9">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="206"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </visualEffectView>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="blurView" destination="5zZ-Cp-eq9" id="Qqd-rw-I9e"/>
+                    </connections>
                 </viewController>
                 <customObject id="IFc-gl-dXp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1206,6 +1194,7 @@ Gw
                                             <menuItem title="Cactbot Test" id="uIS-lf-M4P"/>
                                             <menuItem title="Cactbot DPS Xephero" id="BwE-Rd-WkD"/>
                                             <menuItem title="Cactbot DPS Rdmty" id="NiZ-Zw-CPm"/>
+                                            <menuItem title="NextUI" id="YvZ-1a-C1q"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>

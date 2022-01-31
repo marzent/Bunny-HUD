@@ -6,6 +6,7 @@ import Cocoa
 import CEFswift
 
 class WebViewController: NSViewController, NSWindowDelegate {
+    @IBOutlet private var blurView: NSVisualEffectView!
     var cefHandler : CEFHandler = CEFHandler()
     var windowInfo : CEFWindowInfo = CEFWindowInfo()
     var cefSettings : CEFBrowserSettings = CEFBrowserSettings()
@@ -16,12 +17,26 @@ class WebViewController: NSViewController, NSWindowDelegate {
             refresh()
         }
     }
+    
+    var snapshot : NSImage? {
+        get {
+            guard let window = view.window else { return nil }
+
+            let inf = CGFloat(FP_INFINITE)
+            let null = CGRect(x: inf, y: inf, width: 0, height: 0)
+
+            guard let cgImage = CGWindowListCreateImage(null, .optionIncludingWindow,
+                                                  CGWindowID(window.windowNumber), .bestResolution)
+            else { return nil }
+            let image = NSImage(cgImage: cgImage, size: view.bounds.size)
+
+            return image
+        }
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
         cefSettings.localStorage = .enabled
-//        view.wantsLayer = true
-//        view.layer?.backgroundColor = CGColor.init(red: 1, green: 0, blue: 0, alpha: 0.3)
     }
     
     func updateLayout() {
@@ -50,19 +65,18 @@ class WebViewController: NSViewController, NSWindowDelegate {
         super.viewWillAppear()
         view.window?.isOpaque = false
         view.window?.level = .screenSaver
-        //view.window?.isMovableByWindowBackground = true
+        view.window?.isMovableByWindowBackground = true
         //view.window?.titlebarAppearsTransparent = true
         //view.window?.titleVisibility = NSWindow.TitleVisibility.hidden
-        //view.window?.makeKeyAndOrderFront(self.view.window)
         view.window?.collectionBehavior = .canJoinAllSpaces
         view.window?.delegate = self
+        view.window?.backgroundColor = NSColor.clear
     }
     
     func refresh() {
         let url = node!.url!.computeURL
         if let browser = cefHandler.browser {
             browser.mainFrame?.loadURL(url)
-            browser.reload()
             return
         }
         windowInfo.setAsChild(of: view as CEFWindowHandle, withRect: view.frame)
@@ -73,26 +87,17 @@ class WebViewController: NSViewController, NSWindowDelegate {
     
     func update() {
         cefHandler.setZoom(level: node!.zoom!)
-        let win = view.window
-        win?.ignoresMouseEvents = !node!.clickable!
-        if node!.resizeable! {
-            win?.styleMask = [.resizable, .borderless]
-        }
-        else {
-            win?.styleMask = [.borderless]
-        }
-        if node!.draggable! {
-            win?.styleMask.insert(.titled)
-        }
-        if node!.fullscreen! {
-            node!.pos = win?.frame
-        }
-        win?.setFrame(node!.hidden! ? NSRect.zero : node!.pos!, display: true)
-        if node!.background! {
-            view.window?.backgroundColor = NSColor.init(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        }
-        else {
-            view.window?.backgroundColor = NSColor.clear
+        if let win = view.window {
+            win.ignoresMouseEvents = !node!.clickable!
+            win.styleMask = node!.resizeable! ? [.resizable, .borderless] : [.borderless]
+            if node!.draggable! {
+                win.styleMask.insert(.titled)
+            }
+            if node!.fullscreen! {
+                node!.pos = win.frame
+            }
+            win.setFrame(node!.hidden! ? NSRect.zero : node!.pos!, display: true)
+            blurView.alphaValue = node!.background! ? 1.0 : 0.0
         }
     }
     

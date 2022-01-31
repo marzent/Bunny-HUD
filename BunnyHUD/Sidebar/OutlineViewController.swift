@@ -31,6 +31,7 @@ class OutlineViewController: NSViewController,
     
     @IBAction func reloadOverlays(_: AnyObject) {
         reloadOverlay(item: overlayRootNode)
+        cactbotViewController.reload()
     }
     
     private func reloadOverlay(item: Node) {
@@ -104,7 +105,7 @@ class OutlineViewController: NSViewController,
     
     private var overlayViewController: OverlaySettingsController!
     private var settingsViewController: NSViewController!
-    private var cactbotViewController: NSViewController!
+    private var cactbotViewController: CactbotConfig!
         
     // MARK: View Controller Lifecycle
     
@@ -137,7 +138,7 @@ class OutlineViewController: NSViewController,
             storyboard!.instantiateController(withIdentifier: "GeneralSettings") as? NSViewController
         settingsViewController.view.translatesAutoresizingMaskIntoConstraints = false
         cactbotViewController =
-            storyboard!.instantiateController(withIdentifier: "CactbotSettings") as? NSViewController
+            storyboard!.instantiateController(withIdentifier: "CactbotSettings") as? CactbotConfig
         cactbotViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
         

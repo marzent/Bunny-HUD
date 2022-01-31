@@ -75,7 +75,6 @@ class OverlayURL : Codable {
     }
     
     var computeURL: URL {
-        
         return remote ? URL(string: path + tail)! :
         URL(string: path + tail, relativeTo: URL.init(fileURLWithPath: folder))!
     }

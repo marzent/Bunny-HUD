@@ -18,7 +18,7 @@ extension OutlineViewController {
         let name = selector
         switch selector {
         case "Kagerou":
-            let url = OverlayURL(modern: false, path: "https://hibiyasleep.github.io/kagerou/overlay/")
+            let url = OverlayURL(modern: false, path: "https://idyllshi.re/kagerou/overlay/")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 600, height: 500))
             addNodeToOverlays(node)
         case "MopiMopi":
@@ -46,52 +46,56 @@ extension OutlineViewController {
             let node = Node(title: name, url: url, pos: NSRect(x: screenWidth(percent: 5), y: 0, width: screenWidth(percent: 90), height: 500))
             addNodeToOverlays(node)
         case "Cactbot Raidboss (Combined Alerts & Timeline)":
-            let url = OverlayURL(modern: true, path: "ui/raidboss/raidboss.html", folder: GeneralSettingsController.cactbotFolder)
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/raidboss/raidboss.html")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 1100, height: 300))
             addNodeToOverlays(node)
         case "Cactbot Raidboss Alerts only":
-            let url = OverlayURL(modern: true, path: "ui/raidboss/raidboss.html", folder: GeneralSettingsController.cactbotFolder, options: "&alerts=1&timeline=0")
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/raidboss/raidboss.html", options: "&alerts=1&timeline=0")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 1100, height: 300))
             addNodeToOverlays(node)
         case "Cactbot Raidboss Timeline only":
-            let url = OverlayURL(modern: true, path: "ui/raidboss/raidboss.html", folder: GeneralSettingsController.cactbotFolder, options: "&alerts=0&timeline=1")
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/raidboss/raidboss.html", options: "&alerts=0&timeline=1")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 320, height: 220))
             addNodeToOverlays(node)
         case "Cactbot Jobs":
-            let url = OverlayURL(modern: true, path: "ui/jobs/jobs.html", folder: GeneralSettingsController.cactbotFolder)
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/jobs/jobs.html")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 600, height: 300))
             addNodeToOverlays(node)
         case "Cactbot Eureka":
-            let url = OverlayURL(modern: true, path: "ui/eureka/eureka.html", folder: GeneralSettingsController.cactbotFolder)
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/eureka/eureka.html")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 400, height: 400))
             addNodeToOverlays(node)
         case "Cactbot Fisher":
-            let url = OverlayURL(modern: true, path: "ui/fisher/fisher.html", folder: GeneralSettingsController.cactbotFolder)
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/fisher/fisher.html")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 500, height: 500))
             addNodeToOverlays(node)
         case "Cactbot OopsyRaidsy":
-            let url = OverlayURL(modern: true, path: "ui/oopsyraidsy/oopsyraidsy.html", folder: GeneralSettingsController.cactbotFolder)
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/oopsyraidsy/oopsyraidsy.html")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 400, height: 400))
             addNodeToOverlays(node)
         case "Cactbot PullCounter":
-            let url = OverlayURL(modern: true, path: "ui/pullcounter/pullcounter.html", folder: GeneralSettingsController.cactbotFolder)
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/pullcounter/pullcounter.html")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 200, height: 200))
             addNodeToOverlays(node)
         case "Cactbot Radar":
-            let url = OverlayURL(modern: true, path: "ui/radar/radar.html", folder: GeneralSettingsController.cactbotFolder)
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/radar/radar.html")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 300, height: 400))
             addNodeToOverlays(node)
         case "Cactbot Test":
-            let url = OverlayURL(modern: true, path: "ui/test/test.html", folder: GeneralSettingsController.cactbotFolder)
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/test/test.html")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 300, height: 300))
             addNodeToOverlays(node)
         case "Cactbot DPS Xephero":
-            let url = OverlayURL(modern: true, path: "ui/dps/xephero/xephero-cactbot.html", folder: GeneralSettingsController.cactbotFolder)
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/dps/xephero/xephero-cactbot.html")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 600, height: 400))
             addNodeToOverlays(node)
         case "Cactbot DPS Rdmty":
-            let url = OverlayURL(modern: true, path: "ui/dps/rdmty/dps.html", folder: GeneralSettingsController.cactbotFolder)
+            let url = OverlayURL(modern: true, path: "https://quisquous.github.io/cactbot/ui/dps/rdmty/dps.html")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 600, height: 400))
+            addNodeToOverlays(node)
+        case "NextUI":
+            let url = OverlayURL(modern: true, path: "https://kaminaris.github.io/Next-UI/")
+            let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: screenWidth(percent: 100.0), height: 500))
             addNodeToOverlays(node)
         default:
             let alert = NSAlert()
