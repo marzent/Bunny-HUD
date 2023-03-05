@@ -23,7 +23,6 @@
 		5087F2522725841600117F2F /* OverlaySettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087F2512725841600117F2F /* OverlaySettingsController.swift */; };
 		508A913527283D93008C20AE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508A913427283D93008C20AE /* Notifications.swift */; };
 		50A1BFC3272C697C00AE8AC7 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 50A1BFC2272C697C00AE8AC7 /* LICENSE.txt */; };
-		50A1BFC5272C6CF100AE8AC7 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 50A1BFC4272C6CF100AE8AC7 /* dist */; };
 		50C112442722C92100F62390 /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C112432722C92100F62390 /* SidebarViewController.swift */; };
 		50C112482722F03B00F62390 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C112472722F03B00F62390 /* SplitViewController.swift */; };
 		50C112502722F4D600F62390 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C1124F2722F4D600F62390 /* Node.swift */; };
@@ -49,7 +48,6 @@
 		5087F2512725841600117F2F /* OverlaySettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlaySettingsController.swift; sourceTree = "<group>"; };
 		508A913427283D93008C20AE /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		50A1BFC2272C697C00AE8AC7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		50A1BFC4272C6CF100AE8AC7 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dist; sourceTree = "<group>"; };
 		50B1A33F2714860C008D58AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		50C112432722C92100F62390 /* SidebarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
 		50C112472722F03B00F62390 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 				50841AF8270DFA37005B7D3F /* Main.storyboard */,
 				5081FA3027234ACD00FDA952 /* Localizable.strings */,
 				50A1BFC2272C697C00AE8AC7 /* LICENSE.txt */,
-				50A1BFC4272C6CF100AE8AC7 /* dist */,
 			);
 			path = BunnyHUD;
 			sourceTree = "<group>";
@@ -190,7 +187,6 @@
 			files = (
 				50841AF7270DFA37005B7D3F /* Assets.xcassets in Resources */,
 				5081FA3127234ACD00FDA952 /* Localizable.strings in Resources */,
-				50A1BFC5272C6CF100AE8AC7 /* dist in Resources */,
 				50A1BFC3272C697C00AE8AC7 /* LICENSE.txt in Resources */,
 				50841AFA270DFA37005B7D3F /* Main.storyboard in Resources */,
 			);
@@ -361,7 +357,7 @@
 				CODE_SIGN_ENTITLEMENTS = BunnyHUD/BunnyHUD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BunnyHUD/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -371,7 +367,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 2.0;
 				NSAllowsArbitraryLoadsInWebContent = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = dezent.BunnyHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -388,7 +385,7 @@
 				CODE_SIGN_ENTITLEMENTS = BunnyHUD/BunnyHUD.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BunnyHUD/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -398,7 +395,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 2.0;
 				NSAllowsArbitraryLoadsInWebContent = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = dezent.BunnyHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";

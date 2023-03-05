@@ -16,6 +16,7 @@ class SidebarViewController: NSViewController {
     
     
     override func viewWillAppear() {
+        view.window?.styleMask.insert(.fullSizeContentView)
         super.viewWillAppear()
         let toolbar = NSToolbar(identifier: "toolbar")
         toolbar.delegate = self

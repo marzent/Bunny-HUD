@@ -11,6 +11,7 @@ class OverlayURL : Codable {
     var modern : Bool
     var remote: Bool
     var path : String
+    var folder : String
     var options : String
 
     
@@ -22,6 +23,7 @@ class OverlayURL : Codable {
         case modern
         case remote
         case path
+        case folder
         case options
     }
     
@@ -29,13 +31,23 @@ class OverlayURL : Codable {
         self.modern = false
         self.remote = false
         self.path = ""
+        self.folder = ""
         self.options = ""
     }
     
-    init (modern: Bool, remote : Bool = false, path: String, options : String = "") {
+    init (modern: Bool, path: String, options : String = "") {
         self.modern = modern
-        self.remote = remote
+        self.remote = true
         self.path = path
+        self.folder = ""
+        self.options = options
+    }
+    
+    init (modern: Bool, path: String, folder: String, options : String = "") {
+        self.modern = modern
+        self.remote = false
+        self.path = path
+        self.folder = folder
         self.options = options
     }
     
@@ -64,6 +76,6 @@ class OverlayURL : Codable {
     
     var computeURL: URL {
         return remote ? URL(string: path + tail)! :
-                        URL(string: path + tail, relativeTo: Bundle.main.url(forResource: "dist/Overlays", withExtension: "")!)!
+        URL(string: path + tail, relativeTo: URL.init(fileURLWithPath: folder))!
     }
 }

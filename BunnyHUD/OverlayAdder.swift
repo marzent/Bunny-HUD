@@ -18,7 +18,7 @@ extension OutlineViewController {
         let name = selector
         switch selector {
         case "Kagerou":
-            let url = OverlayURL(modern: false, remote: true, path: "http://unsecure.idyllshi.re/kagerou/overlay")
+            let url = OverlayURL(modern: false, path: "http://unsecure.idyllshi.re/kagerou/overlay")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 600, height: 500))
             addNodeToOverlays(node)
         case "MopiMopi":
@@ -26,7 +26,7 @@ extension OutlineViewController {
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 600, height: 500))
             addNodeToOverlays(node)
         case "Ikegami":
-            let url = OverlayURL(modern: false, remote: true, path: "http://unsecure.idyllshi.re/ikegami")
+            let url = OverlayURL(modern: false, path: "http://unsecure.idyllshi.re/ikegami")
             let node = Node(title: name, url: url, pos: NSRect(x: 0, y: 0, width: 1900, height: 500))
             addNodeToOverlays(node)
         case "Cactbot Raidboss (Combined Alerts & Timeline)":
@@ -85,4 +85,16 @@ extension OutlineViewController {
             alert.runModal()
         }
     }
+    
+    private func screenWidth(percent: CGFloat) -> Int{
+        if let screen = NSScreen.main {
+            let rect = screen.frame
+            let width = rect.size.width
+            return Int(width * (percent / 100))
+        }
+        else {
+            return 1000
+        }
+    }
+    
 }
