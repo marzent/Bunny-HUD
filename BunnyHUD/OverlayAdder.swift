@@ -1,7 +1,6 @@
 /*
-See LICENSE folder for licensing information.
-*/
-
+ See LICENSE folder for licensing information.
+ */
 
 import Cocoa
 
@@ -11,7 +10,7 @@ extension OutlineViewController {
         let overlayWinController = self.storyboard!.instantiateController(withIdentifier: "OverlaySheet") as! NSWindowController
         view.window?.beginSheet(overlayWinController.window!)
     }
-    
+
     @objc
     func addOverlayDone(_ notif: Notification) {
         let selector = notif.userInfo?[Notification.overlayKey.selector]! as! String
@@ -85,8 +84,8 @@ extension OutlineViewController {
             alert.runModal()
         }
     }
-    
-    private func screenWidth(percent: CGFloat) -> Int{
+
+    private func screenWidth(percent: CGFloat) -> Int {
         if let screen = NSScreen.main {
             let rect = screen.frame
             let width = rect.size.width
@@ -96,5 +95,4 @@ extension OutlineViewController {
             return 1000
         }
     }
-    
 }

@@ -1,23 +1,22 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+ See LICENSE folder for this sample’s licensing information.
 
-Abstract:
-The view controller that manages the split-view interface.
-*/
+ Abstract:
+ The view controller that manages the split-view interface.
+ */
 
 import Cocoa
 
 class DetailViewContainer: NSView {
     /** You embed a child view controller into the detail view controller each time a different outline view item becomes selected.
-        For the split view controller to consistently remain in the responder chain, the detail view controller's view property needs to
-        accept first responder status. This is especially important for the consistent validation of the Show/Hide Sidebar
-        menu item in the View menu.
-    */
+         For the split view controller to consistently remain in the responder chain, the detail view controller's view property needs to
+         accept first responder status. This is especially important for the consistent validation of the Show/Hide Sidebar
+         menu item in the View menu.
+     */
     override var acceptsFirstResponder: Bool { return true }
 }
 
 class SplitViewController: NSSplitViewController {
-    
     private var verticalConstraints: [NSLayoutConstraint] = []
     private var horizontalConstraints: [NSLayoutConstraint] = []
     
@@ -31,10 +30,10 @@ class SplitViewController: NSSplitViewController {
             width if the split-view grows or shrinks.
          */
         
-        NotificationCenter.default.addObserver( self,selector: #selector(handleSelectionChange(_:)),name: .selectionChanged,object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSelectionChange(_:)), name: .selectionChanged, object: nil)
         // This preserves the split-view divider position.
         splitView.autosaveName = "SplitViewAutoSave"
-        //embedChildViewController(OverlaySettings)
+        // embedChildViewController(OverlaySettings)
     }
     
     // MARK: Detail View Controller Management
@@ -89,8 +88,8 @@ class SplitViewController: NSSplitViewController {
             if let vcForDetail = outlineViewControllerToObserve.viewControllerForSelection(treeController.selectedNodes) {
                 if hasChildViewController && currentDetailVC.children[0] != vcForDetail {
                     /** The incoming child view controller is different from the one you currently have,
-                        so remove the old one and add the new one.
-                    */
+                         so remove the old one and add the new one.
+                     */
                     currentDetailVC.removeChild(at: 0)
                     // Remove the old child detail view.
                     detailViewController.view.subviews[0].removeFromSuperview()
@@ -111,5 +110,4 @@ class SplitViewController: NSSplitViewController {
             }
         }
     }
-    
 }

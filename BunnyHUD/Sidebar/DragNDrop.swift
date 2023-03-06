@@ -1,16 +1,12 @@
 /*
-See LICENSE folder for licensing information.
-*/
-
+ See LICENSE folder for licensing information.
+ */
 
 import Cocoa
 
-
-
 extension NSTreeController {
-    
     func indexPathOfObject(anObject: Node) -> IndexPath? {
-        return indexPathOfObject(anObject: anObject, nodes: self.arrangedObjects.children)
+        return indexPathOfObject(anObject: anObject, nodes: arrangedObjects.children)
     }
     
     func indexPathOfObject(anObject: Node, nodes: [NSTreeNode]!) -> IndexPath? {
@@ -29,33 +25,28 @@ extension NSTreeController {
 }
 
 extension NSPasteboard.PasteboardType {
-    
     // This UTI string needs be a unique identifier.
     static let nodeRowPasteBoardType =
         NSPasteboard.PasteboardType("com.bunnyhud.dezent.Sidebar.internalNodeDragType")
 }
 
 extension OutlineViewController: NSOutlineViewDataSource {
-
     // MARK: Drag and Drop
     
     /** This is the start of an internal drag, so decide what kind of pasteboard writer you want:
-         either NodePasteboardWriter or a nonfile promiser writer.
-          The system calls this for each dragged item in the selection.
-    */
+          either NodePasteboardWriter or a nonfile promiser writer.
+           The system calls this for each dragged item in the selection.
+     */
     func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
-        
         let rowIdx = outlineView.row(forItem: item)
         
-        
-            // The node isn't file-promised because it's a directory or a nonimage file.
-            let pasteboardItem = NSPasteboardItem()
+        // The node isn't file-promised because it's a directory or a nonimage file.
+        let pasteboardItem = NSPasteboardItem()
             
-            // Remember the dragged node by its row number for later.
-            let propertyList = ["rowKey" : rowIdx]
-            pasteboardItem.setPropertyList(propertyList, forType: .nodeRowPasteBoardType)
-            return pasteboardItem
-
+        // Remember the dragged node by its row number for later.
+        let propertyList = ["rowKey": rowIdx]
+        pasteboardItem.setPropertyList(propertyList, forType: .nodeRowPasteBoardType)
+        return pasteboardItem
     }
 
     // A utility function to detect if the user is dragging an item into its descendants.
@@ -65,7 +56,7 @@ extension OutlineViewController: NSOutlineViewDataSource {
                                             for: outlineView,
                                             classes: [NSPasteboardItem.self],
                                             searchOptions: [:]) { dragItem, _, _ in
-              if let droppedPasteboardItem = dragItem.item as? NSPasteboardItem {
+            if let droppedPasteboardItem = dragItem.item as? NSPasteboardItem {
                 if let checkItem = self.itemFromPasteboardItem(droppedPasteboardItem) {
                     // Start at the root and recursively search.
                     let treeRoot = self.treeController.arrangedObjects
@@ -85,7 +76,7 @@ extension OutlineViewController: NSOutlineViewDataSource {
                                             for: outlineView,
                                             classes: [NSPasteboardItem.self],
                                             searchOptions: [:]) { dragItem, _, _ in
-              if let droppedPasteboardItem = dragItem.item as? NSPasteboardItem {
+            if let droppedPasteboardItem = dragItem.item as? NSPasteboardItem {
                 if let checkItem = self.itemFromPasteboardItem(droppedPasteboardItem) {
                     // Start at the root and recursively search.
                     let treeRoot = self.treeController.arrangedObjects
@@ -108,17 +99,18 @@ extension OutlineViewController: NSOutlineViewDataSource {
     }
     
     /** The system calls this during a drag over the outline view before the drop occurs.
-        The outline view uses it to determine a visual drop target.
-        Use this function to specify how to respond to a proposed drop operation.
-    */
+         The outline view uses it to determine a visual drop target.
+         Use this function to specify how to respond to a proposed drop operation.
+     */
     func outlineView(_ outlineView: NSOutlineView,
                      validateDrop info: NSDraggingInfo,
                      proposedItem item: Any?, // The place the drop is hovering over.
-                     proposedChildIndex index: Int) -> NSDragOperation { // The child index the drop is hovering over.
+                     proposedChildIndex index: Int) -> NSDragOperation
+    { // The child index the drop is hovering over.
         var result = NSDragOperation()
         
-        guard index != -1,     // Don't allow dropping on a child.
-                item != nil    // Make sure you have a valid outline view item to drop on.
+        guard index != -1, // Don't allow dropping on a child.
+              item != nil // Make sure you have a valid outline view item to drop on.
         else { return result }
         
         // Find the node you're dropping onto.
@@ -149,10 +141,6 @@ extension OutlineViewController: NSOutlineViewDataSource {
         return result
     }
     
-    
-    
-   
-    
     // The user is doing a drop or intra-app drop within the outline view.
     private func handleInternalDrops(_ outlineView: NSOutlineView, draggingInfo: NSDraggingInfo, indexPath: IndexPath) {
         // Accumulate all drag items and move them to the proper indexPath.
@@ -168,7 +156,7 @@ extension OutlineViewController: NSOutlineViewDataSource {
                 }
             }
         }
-        self.treeController.move(itemsToMove, to: indexPath)
+        treeController.move(itemsToMove, to: indexPath)
         NotificationCenter.default.post(name: Notification.Name(OverlaySettingsController.NotificationNames.nodeChanged), object: nil)
     }
     
@@ -183,7 +171,8 @@ extension OutlineViewController: NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView,
                      acceptDrop info: NSDraggingInfo,
                      item targetItem: Any?,
-                     childIndex index: Int) -> Bool {
+                     childIndex index: Int) -> Bool
+    {
         // Find the index path to insert the dropped objects.
         if let dropIndexPath = droppedIndexPath(item: targetItem, childIndex: index) {
             // Check the dragging type.
@@ -203,9 +192,11 @@ extension OutlineViewController: NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView,
                      draggingSession session: NSDraggingSession,
                      endedAt screenPoint: NSPoint,
-                     operation: NSDragOperation) {
+                     operation: NSDragOperation)
+    {
         if operation == .delete,
-            let items = session.draggingPasteboard.pasteboardItems {
+           let items = session.draggingPasteboard.pasteboardItems
+        {
             var itemsToRemove = [Node]()
             
             // Find the items the user is dragging to the Trash (as a dictionary containing their row numbers).
@@ -236,7 +227,7 @@ extension OutlineViewController: NSOutlineViewDataSource {
     private func itemFromPasteboardItem(_ item: NSPasteboardItem) -> NSTreeNode? {
         // Obtain the property list and find the row number of the dragged node.
         guard let itemPlist = item.propertyList(forType: .nodeRowPasteBoardType) as? [String: Any],
-            let rowIndex = itemPlist["rowKey" ] as? Int else { return nil }
+              let rowIndex = itemPlist["rowKey"] as? Int else { return nil }
 
         // Ask the outline view for the tree node.
         return outlineView.item(atRow: rowIndex) as? NSTreeNode
@@ -259,5 +250,4 @@ extension OutlineViewController: NSOutlineViewDataSource {
         }
         return dropIndexPath
     }
-    
 }

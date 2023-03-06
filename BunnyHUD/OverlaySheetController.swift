@@ -7,15 +7,14 @@
 import Cocoa
 
 class OverlaySheetController: NSViewController {
-    
     @IBOutlet private var okButton: NSButton!
     @IBOutlet private var selector: NSPopUpButton!
     @IBOutlet private var nameField: NSTextField!
     
     @IBAction func okAction(_ sender: Any) {
         NotificationCenter.default.post(name: .addOverlayDone, object: nil,
-                                        userInfo:[Notification.overlayKey.selector: selector.titleOfSelectedItem!,
-                                                  Notification.overlayKey.name: nameField.stringValue])
+                                        userInfo: [Notification.overlayKey.selector: selector.titleOfSelectedItem!,
+                                                   Notification.overlayKey.name: nameField.stringValue])
         view.window?.close()
     }
     

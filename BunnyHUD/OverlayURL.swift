@@ -1,20 +1,16 @@
 /*
-See LICENSE folder for licensing information.
-*/
-
+ See LICENSE folder for licensing information.
+ */
 
 import Foundation
 
-class OverlayURL : Codable {
-    
-    
-    var modern : Bool
+class OverlayURL: Codable {
+    var modern: Bool
     var remote: Bool
-    var path : String
-    var folder : String
-    var options : String
+    var path: String
+    var folder: String
+    var options: String
 
-    
     private let ipAddressKey = "ipAdress"
     private let defaultAddress = "127.0.0.1"
     private let portKey = "port"
@@ -27,7 +23,7 @@ class OverlayURL : Codable {
         case options
     }
     
-    init () {
+    init() {
         self.modern = false
         self.remote = false
         self.path = ""
@@ -35,7 +31,7 @@ class OverlayURL : Codable {
         self.options = ""
     }
     
-    init (modern: Bool, path: String, options : String = "") {
+    init(modern: Bool, path: String, options: String = "") {
         self.modern = modern
         self.remote = true
         self.path = path
@@ -43,7 +39,7 @@ class OverlayURL : Codable {
         self.options = options
     }
     
-    init (modern: Bool, path: String, folder: String, options : String = "") {
+    init(modern: Bool, path: String, folder: String, options: String = "") {
         self.modern = modern
         self.remote = false
         self.path = path
@@ -51,7 +47,7 @@ class OverlayURL : Codable {
         self.options = options
     }
     
-    var ipAddress : String {
+    var ipAddress: String {
         get {
             return GeneralSettingsController.getSetting(settingKey: ipAddressKey, defaultValue: defaultAddress)
         }
@@ -60,7 +56,7 @@ class OverlayURL : Codable {
         }
     }
     
-    var port : String {
+    var port: String {
         get {
             return GeneralSettingsController.getSetting(settingKey: portKey, defaultValue: defaultPort)
         }
@@ -69,13 +65,13 @@ class OverlayURL : Codable {
         }
     }
     
-    private var tail : String {
+    private var tail: String {
         return modern ? "?OVERLAY_WS=ws://"+ipAddress+":"+port+"/ws"+options :
-                        "?HOST_PORT=ws://"+ipAddress+":"+port+options
+            "?HOST_PORT=ws://"+ipAddress+":"+port+options
     }
     
     var computeURL: URL {
-        return remote ? URL(string: path + tail)! :
-        URL(string: path + tail, relativeTo: URL.init(fileURLWithPath: folder))!
+        return remote ? URL(string: path+tail)! :
+            URL(string: path+tail, relativeTo: URL(fileURLWithPath: folder))!
     }
 }

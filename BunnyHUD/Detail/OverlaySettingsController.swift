@@ -1,13 +1,11 @@
 /*
-See LICENSE folder for licensing information.
-*/
-
+ See LICENSE folder for licensing information.
+ */
 
 import Cocoa
 
 class OverlaySettingsController: NSViewController {
-    
-    struct NotificationNames {
+    enum NotificationNames {
         static let nodeChanged = "NodeChangedNotification"
         static let layoutChanged = "LayoutChangedNotification"
     }
@@ -54,7 +52,7 @@ class OverlaySettingsController: NSViewController {
     }
     
     private func updateView() {
-        if node == nil  {
+        if node == nil {
             return
         }
         xPosition.stringValue = "\(Int(node!.pos!.origin.x))"
@@ -94,5 +92,4 @@ class OverlaySettingsController: NSViewController {
             name: Notification.Name(OverlaySettingsController.NotificationNames.layoutChanged),
             object: nil)
     }
-    
 }

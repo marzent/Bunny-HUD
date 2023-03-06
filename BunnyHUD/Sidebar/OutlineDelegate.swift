@@ -1,14 +1,13 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+ See LICENSE folder for this sample’s licensing information.
 
-Abstract:
-NSOutlineViewDelegate support for OutlineViewController.
-*/
+ Abstract:
+ NSOutlineViewDelegate support for OutlineViewController.
+ */
 
 import Cocoa
 
 extension OutlineViewController: NSOutlineViewDelegate {
-    
     // Is the outline view item a group node? Not a folder but a group, with Hide/Show buttons.
     func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
         let node = OutlineViewController.node(from: item)
@@ -46,7 +45,8 @@ extension OutlineViewController: NSOutlineViewDelegate {
             // The row is a separator node, so make a custom view for it,.
             if let separator =
                 outlineView.makeView(
-                    withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "Separator"), owner: self) as? SeparatorView {
+                    withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "Separator"), owner: self) as? SeparatorView
+            {
                 return separator
             }
         } else if self.outlineView(outlineView, isGroupItem: item) {
@@ -83,6 +83,4 @@ extension OutlineViewController: NSOutlineViewDelegate {
             }
         }
     }
-    
 }
-

@@ -1,6 +1,6 @@
 /*
-See LICENSE folder for licensing information.
-*/
+ See LICENSE folder for licensing information.
+ */
 
 import Foundation
 
@@ -12,7 +12,6 @@ extension Notification.Name {
     static let selectionChanged = Notification.Name("SelectionChangedNotification")
     static let nodeChanged = Notification.Name("NodeChangedNotification")
     static let layoutChanged = Notification.Name("LayoutChangedNotification")
-
 }
 
 extension Notification {

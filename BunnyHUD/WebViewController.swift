@@ -1,12 +1,11 @@
 /*
-See LICENSE folder for licensing information.
-*/
+ See LICENSE folder for licensing information.
+ */
 
 import Cocoa
 import WebKit
 
-class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, NSWindowDelegate
-    {
+class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, NSWindowDelegate {
     var webView: WebDragView!
     var newWebviewPopupWindow: WKWebView?
     weak var windowController: NSWindowController?
@@ -17,25 +16,24 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         }
     }
    
-    
     override func loadView() {
-        let webConfiguration = WKWebViewConfiguration ()
+        let webConfiguration = WKWebViewConfiguration()
         webConfiguration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         webConfiguration.preferences.setValue(true, forKey: "javaScriptCanOpenWindowsAutomatically")
-        //webConfiguration.preferences.setValue(true, forKey: "allowsContentJavaScript")
+        // webConfiguration.preferences.setValue(true, forKey: "allowsContentJavaScript")
         webConfiguration.preferences.setValue(true, forKey: "javaScriptEnabled")
         webConfiguration.preferences.setValue(true, forKey: "developerExtrasEnabled")
         webConfiguration.mediaTypesRequiringUserActionForPlayback = []
-        webView = WebDragView (frame: CGRect(x:0, y:0, width:800, height:600), configuration:webConfiguration)
+        webView = WebDragView(frame: CGRect(x: 0, y: 0, width: 800, height: 600), configuration: webConfiguration)
         webView.setValue(false, forKey: "drawsBackground")
         webView.uiDelegate = self
         view = webView
-        }
+    }
     
-    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) { completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!)) }
+    func webView(_: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) { completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!)) }
     
     func webView(_: WKWebView, createWebViewWith _: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures _: WKWindowFeatures) -> WKWebView? {
-        self.webView?.load(navigationAction.request)
+        webView?.load(navigationAction.request)
         return nil
     }
 
@@ -48,17 +46,17 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         if node!.hidden! {
             return
         }
-        if let pos = view.window?.frame  {
+        if let pos = view.window?.frame {
             node!.pos = pos
             NotificationCenter.default.post(name: Notification.Name(OverlaySettingsController.NotificationNames.layoutChanged), object: nil)
         }
     }
     
-    func windowDidResize(_ notification: Notification) {
+    func windowDidResize(_: Notification) {
         updateLayout()
     }
     
-    func windowDidMove(_ notification: Notification) {
+    func windowDidMove(_: Notification) {
         updateLayout()
     }
     
@@ -66,14 +64,13 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         super.viewWillAppear()
         view.window?.isOpaque = false
         view.window?.level = .screenSaver
-        //view.window?.isMovableByWindowBackground = true
+        // view.window?.isMovableByWindowBackground = true
         view.window?.titlebarAppearsTransparent = true
         view.window?.titleVisibility = NSWindow.TitleVisibility.hidden
-        //view.window?.makeKeyAndOrderFront(self.view.window)
+        // view.window?.makeKeyAndOrderFront(self.view.window)
         view.window?.collectionBehavior = .canJoinAllSpaces
         view.window?.delegate = self
         windowController = view.window?.windowController
-        
     }
     
     func refresh() {
@@ -103,17 +100,15 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         view.window?.setFrame(node!.hidden! ? NSRect.zero : node!.pos!, display: true)
         webView.draggable = node!.draggable!
         if node!.background! {
-            view.window?.backgroundColor = NSColor.init(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+            view.window?.backgroundColor = NSColor(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         }
         else {
             view.window?.backgroundColor = NSColor.clear
         }
     }
-    
 }
 
 class WebDragView: WKWebView {
-    
     var draggable = false
     
     override public func mouseDragged(with event: NSEvent) {
@@ -122,7 +117,7 @@ class WebDragView: WKWebView {
             window?.performDrag(with: event)
         }
     }
-//    
+//
 //    override func hitTest(_ point: NSPoint) -> NSView? {
 //        return nil
 //    }

@@ -1,7 +1,6 @@
 /*
-See LICENSE folder for licensing information.
-*/
-
+ See LICENSE folder for licensing information.
+ */
 
 import Cocoa
 
@@ -29,11 +28,9 @@ class Node: NSObject, Codable {
     var zoom: CGFloat?
     @objc dynamic var children = [Node]()
     
-    override init() {
-        
-    }
+    override init() {}
     
-    convenience init (title: String, identifier: String, url: OverlayURL, pos: NSRect, clickable: Bool, resizeable: Bool, draggable: Bool, hidden: Bool, background: Bool, fullscreen:Bool, zoom: CGFloat) {
+    convenience init(title: String, identifier: String, url: OverlayURL, pos: NSRect, clickable: Bool, resizeable: Bool, draggable: Bool, hidden: Bool, background: Bool, fullscreen: Bool, zoom: CGFloat) {
         self.init()
         self.type = .overlay
         self.title = title
@@ -50,7 +47,7 @@ class Node: NSObject, Codable {
         self.zoom = zoom
     }
     
-    convenience init (title: String, url: OverlayURL, pos: NSRect) {
+    convenience init(title: String, url: OverlayURL, pos: NSRect) {
         self.init()
         self.type = .overlay
         self.title = title
@@ -67,17 +64,16 @@ class Node: NSObject, Codable {
         self.zoom = 1.0
     }
     
-    convenience init (title: String) {
+    convenience init(title: String) {
         self.init()
         self.type = .setting
         self.title = title
-        self.identifier = "setting"+title
+        self.identifier = "setting" + title
         self.children = []
     }
 }
 
 extension Node {
-    
     /** The tree controller calls this to determine if this node is a leaf node,
         use it to determine if the node needs a disclosure triangle.
      */

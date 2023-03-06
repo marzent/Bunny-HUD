@@ -1,14 +1,13 @@
 /*
-See LICENSE folder for licensing information.
-*/
-
+ See LICENSE folder for licensing information.
+ */
 
 import Cocoa
 import WebKit
 
 class CactbotConfig: NSViewController, WKUIDelegate, WKNavigationDelegate {
-    @IBOutlet weak var webView: WKWebView!
-    
+    @IBOutlet var webView: WKWebView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.uiDelegate = self
@@ -20,8 +19,8 @@ class CactbotConfig: NSViewController, WKUIDelegate, WKNavigationDelegate {
 }
 
 class KagerouConfig: NSViewController, WKUIDelegate, WKNavigationDelegate {
-    @IBOutlet weak var webView: WKWebView!
-    
+    @IBOutlet var webView: WKWebView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.uiDelegate = self
