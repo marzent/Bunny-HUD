@@ -20,7 +20,6 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         webConfiguration.preferences.setValue(true, forKey: "javaScriptCanOpenWindowsAutomatically")
-        // webConfiguration.preferences.setValue(true, forKey: "allowsContentJavaScript")
         webConfiguration.preferences.setValue(true, forKey: "javaScriptEnabled")
         webConfiguration.preferences.setValue(true, forKey: "developerExtrasEnabled")
         webConfiguration.mediaTypesRequiringUserActionForPlayback = []
@@ -30,11 +29,13 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         view = webView
     }
     
-    func webView(_: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) { completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!)) }
-    
-    func webView(_: WKWebView, createWebViewWith _: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures _: WKWindowFeatures) -> WKWebView? {
-        webView?.load(navigationAction.request)
-        return nil
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        let popupWebView = WKWebView(frame: view.bounds, configuration: configuration)
+        popupWebView.autoresizingMask = [.width, .height]
+        popupWebView.navigationDelegate = self
+        popupWebView.uiDelegate = self
+        _ = PopupWindowDelegate(title: node?.title ?? "Popup", contentView: popupWebView)
+        return popupWebView
     }
 
     override func viewDidLoad() {
@@ -117,14 +118,5 @@ class WebDragView: WKWebView {
             window?.performDrag(with: event)
         }
     }
-//
-//    override func hitTest(_ point: NSPoint) -> NSView? {
-//        return nil
-//    }
 }
 
-class ClickTroughWindow: NSWindow {
-//    override func accessibilityHitTest(_ point: NSPoint) -> Any? {
-//        return nil
-//    }
-}

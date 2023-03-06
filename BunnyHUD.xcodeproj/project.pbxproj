@@ -28,6 +28,7 @@
 		50C112502722F4D600F62390 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C1124F2722F4D600F62390 /* Node.swift */; };
 		50C1125227230B9700F62390 /* DragNDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C1125127230B9700F62390 /* DragNDrop.swift */; };
 		50E8825629B5E310003036B6 /* overlays.json in Resources */ = {isa = PBXBuildFile; fileRef = 50E8825529B5E310003036B6 /* overlays.json */; };
+		50E8825829B6221A003036B6 /* PopupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8825729B6221A003036B6 /* PopupWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		50C1124F2722F4D600F62390 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		50C1125127230B9700F62390 /* DragNDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragNDrop.swift; sourceTree = "<group>"; };
 		50E8825529B5E310003036B6 /* overlays.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = overlays.json; path = "act-overlays/overlays.json"; sourceTree = "<group>"; };
+		50E8825729B6221A003036B6 /* PopupWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				50841AF4270DFA36005B7D3F /* WebViewController.swift */,
 				50C112432722C92100F62390 /* SidebarViewController.swift */,
 				50766EA827281FB4007DD881 /* OverlaySheetController.swift */,
+				50E8825729B6221A003036B6 /* PopupWindowController.swift */,
 				50C112492722F04E00F62390 /* Sidebar */,
 				5087F2502725836300117F2F /* Detail */,
 				50C1124F2722F4D600F62390 /* Node.swift */,
@@ -212,6 +215,7 @@
 				50841AF3270DFA36005B7D3F /* AppDelegate.swift in Sources */,
 				5081FA3327234D1F00FDA952 /* OutlineDelegate.swift in Sources */,
 				5087F2522725841600117F2F /* OverlaySettingsController.swift in Sources */,
+				50E8825829B6221A003036B6 /* PopupWindowController.swift in Sources */,
 				508A913527283D93008C20AE /* Notifications.swift in Sources */,
 				50C1125227230B9700F62390 /* DragNDrop.swift in Sources */,
 				5081FA2F272338B600FDA952 /* OutlineViewController.swift in Sources */,
