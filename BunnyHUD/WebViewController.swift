@@ -7,6 +7,7 @@ import WebKit
 
 class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, NSWindowDelegate {
     var webView: WebDragView!
+    var blurView: NSVisualEffectView!
     var newWebviewPopupWindow: WKWebView?
     weak var windowController: NSWindowController?
     @objc var node: Node? {
@@ -26,7 +27,12 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         webView = WebDragView(frame: CGRect(x: 0, y: 0, width: 800, height: 600), configuration: webConfiguration)
         webView.setValue(false, forKey: "drawsBackground")
         webView.uiDelegate = self
+        blurView = NSVisualEffectView(frame: webView.frame)
+        blurView.blendingMode = .behindWindow
+        blurView.material = .hudWindow
+        blurView.state = .active
         view = webView
+        view.addSubview(blurView, positioned: .below, relativeTo: webView)
     }
     
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
@@ -65,11 +71,10 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         super.viewWillAppear()
         view.window?.isOpaque = false
         view.window?.level = .screenSaver
-        // view.window?.isMovableByWindowBackground = true
         view.window?.titlebarAppearsTransparent = true
         view.window?.titleVisibility = NSWindow.TitleVisibility.hidden
-        // view.window?.makeKeyAndOrderFront(self.view.window)
         view.window?.collectionBehavior = .canJoinAllSpaces
+        view.window?.backgroundColor = NSColor.clear
         view.window?.delegate = self
         windowController = view.window?.windowController
     }
@@ -100,12 +105,7 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         }
         view.window?.setFrame(node!.hidden! ? NSRect.zero : node!.pos!, display: true)
         webView.draggable = node!.draggable!
-        if node!.background! {
-            view.window?.backgroundColor = NSColor(displayP3Red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        }
-        else {
-            view.window?.backgroundColor = NSColor.clear
-        }
+        blurView.alphaValue = node!.background! ? 1.0 : 0.0
     }
 }
 
@@ -119,4 +119,3 @@ class WebDragView: WKWebView {
         }
     }
 }
-
