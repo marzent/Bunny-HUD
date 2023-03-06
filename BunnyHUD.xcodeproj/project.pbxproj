@@ -27,6 +27,7 @@
 		50C112482722F03B00F62390 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C112472722F03B00F62390 /* SplitViewController.swift */; };
 		50C112502722F4D600F62390 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C1124F2722F4D600F62390 /* Node.swift */; };
 		50C1125227230B9700F62390 /* DragNDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C1125127230B9700F62390 /* DragNDrop.swift */; };
+		50E8825629B5E310003036B6 /* overlays.json in Resources */ = {isa = PBXBuildFile; fileRef = 50E8825529B5E310003036B6 /* overlays.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		50C112472722F03B00F62390 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		50C1124F2722F4D600F62390 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		50C1125127230B9700F62390 /* DragNDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragNDrop.swift; sourceTree = "<group>"; };
+		50E8825529B5E310003036B6 /* overlays.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = overlays.json; path = "act-overlays/overlays.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		50841AF1270DFA36005B7D3F /* BunnyHUD */ = {
 			isa = PBXGroup;
 			children = (
+				50E8825529B5E310003036B6 /* overlays.json */,
 				5087F24F2725518700117F2F /* BunnyHUD.entitlements */,
 				50B1A33F2714860C008D58AF /* Info.plist */,
 				50841AF2270DFA36005B7D3F /* AppDelegate.swift */,
@@ -185,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E8825629B5E310003036B6 /* overlays.json in Resources */,
 				50841AF7270DFA37005B7D3F /* Assets.xcassets in Resources */,
 				5081FA3127234ACD00FDA952 /* Localizable.strings in Resources */,
 				50A1BFC3272C697C00AE8AC7 /* LICENSE.txt in Resources */,
@@ -358,6 +362,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = TQJJTJ6364;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BunnyHUD/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Bunny HUD";
@@ -388,6 +394,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = TQJJTJ6364;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BunnyHUD/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Bunny HUD";

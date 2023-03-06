@@ -16,7 +16,7 @@ extension Notification.Name {
 
 extension Notification {
     enum overlayKey: String {
-        case selector
         case name
+        case url
     }
 }

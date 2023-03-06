@@ -1,0 +1,3 @@
+[submodule "BunnyHUD/act-overlays"]
+	path = BunnyHUD/act-overlays
+	url = https://github.com/cking/act-overlays
