@@ -32,6 +32,10 @@ class OverlaySheetController: NSViewController {
     private static let jsonData = try! Data(contentsOf: jsonURL)
     private static let overlays = try! JSONDecoder().decode(Overlays.self, from: jsonData)
     
+    static let systemOverlayURLs = Dictionary(uniqueKeysWithValues: overlays.values
+        .filter {$0.system ?? false}
+        .map {($0.name, OverlayURL(modern: $0.modern, path: $0.httpProxy, options: $0.options))})
+    
     @IBAction func okAction(_ sender: Any) {
         guard let overlayName = selector.titleOfSelectedItem else {
             return

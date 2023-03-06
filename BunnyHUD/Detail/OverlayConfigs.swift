@@ -12,20 +12,7 @@ class CactbotConfig: NSViewController, WKUIDelegate, WKNavigationDelegate {
         super.viewDidLoad()
         webView.uiDelegate = self
         webView.navigationDelegate = self
-        let url = OverlayURL(modern: true, path: "http://proxy.iinact.com/overlay/cactbot/ui/config/config.html").computeURL
-        let request = URLRequest(url: url)
-        webView.load(request)
-    }
-}
-
-class KagerouConfig: NSViewController, WKUIDelegate, WKNavigationDelegate {
-    @IBOutlet var webView: WKWebView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-        let url = OverlayURL(modern: true, path: "http://unsecure.idyllshi.re/kagerou/config").computeURL
+        let url = OverlaySheetController.systemOverlayURLs["Cactbot Configuration"]!.computeURL
         let request = URLRequest(url: url)
         webView.load(request)
     }
