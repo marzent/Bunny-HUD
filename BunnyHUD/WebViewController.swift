@@ -31,6 +31,7 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
         blurView.blendingMode = .behindWindow
         blurView.material = .hudWindow
         blurView.state = .active
+        blurView.autoresizingMask = [.width, .height]
         view = webView
         view.addSubview(blurView, positioned: .below, relativeTo: webView)
     }
