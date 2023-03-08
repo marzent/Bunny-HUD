@@ -6,7 +6,7 @@
 //
 import Cocoa
 
-fileprivate struct OverlaysValue: Codable {
+private struct OverlaysValue: Codable {
     let name: String
     let url: String
     let httpProxy: String
@@ -21,34 +21,43 @@ fileprivate struct OverlaysValue: Codable {
     }
 }
 
-fileprivate typealias Overlays = [String: OverlaysValue]
+private typealias Overlays = [String: OverlaysValue]
 
 class OverlaySheetController: NSViewController {
     @IBOutlet private var okButton: NSButton!
     @IBOutlet private var selector: NSPopUpButton!
-    @IBOutlet private var nameField: NSTextField!
+    @IBOutlet private var urlField: NSTextField!
     
     private static let jsonURL = Bundle.main.url(forResource: "overlays", withExtension: "json")!
     private static let jsonData = try! Data(contentsOf: jsonURL)
     private static let overlays = try! JSONDecoder().decode(Overlays.self, from: jsonData)
     
     static let systemOverlayURLs = Dictionary(uniqueKeysWithValues: overlays.values
-        .filter {$0.system ?? false}
-        .map {($0.name, OverlayURL(modern: $0.modern, path: $0.httpProxy, options: $0.options))})
+        .filter { $0.system ?? false }
+        .map { ($0.name, OverlayURL(modern: $0.modern, path: $0.httpProxy, options: $0.options)) })
     
-    @IBAction func okAction(_ sender: Any) {
+    fileprivate var selectedOverlay: OverlaysValue? {
         guard let overlayName = selector.titleOfSelectedItem else {
-            return
+            return nil
         }
         let overlays = OverlaySheetController.overlays.values
-        guard let selectedOverlay = overlays.first(where: {$0.name == overlayName}) else {
+        guard let selected = overlays.first(where: { $0.name == overlayName }) else {
+            return nil
+        }
+        return selected
+    }
+    
+    fileprivate func getOverlayURL(from: OverlaysValue) -> OverlayURL {
+        OverlayURL(modern: from.modern, path: from.httpProxy, options: from.options)
+    }
+    
+    @IBAction func okAction(_ sender: Any) {
+        guard let selectedOverlay = selectedOverlay else {
             return
         }
-        let overlayURL = OverlayURL(modern: selectedOverlay.modern,
-                                    path: selectedOverlay.httpProxy,
-                                    options: selectedOverlay.options)
+        let overlayURL = getOverlayURL(from: selectedOverlay)
         NotificationCenter.default.post(name: .addOverlayDone, object: nil,
-                                        userInfo: [Notification.overlayKey.name: overlayName,
+                                        userInfo: [Notification.overlayKey.name: selectedOverlay.name,
                                                    Notification.overlayKey.url: overlayURL])
         view.window?.close()
     }
@@ -57,11 +66,20 @@ class OverlaySheetController: NSViewController {
         view.window?.close()
     }
     
+    @IBAction func updateURL(_ sender: Any) {
+        guard let selectedOverlay = selectedOverlay else {
+            return
+        }
+        let overlayURL = getOverlayURL(from: selectedOverlay)
+        urlField.stringValue = overlayURL.computeURL.absoluteString
+    }
+    
     override func viewWillAppear() {
         okButton.isHighlighted = true
-        let overlays = OverlaySheetController.overlays.values.filter {!($0.system ?? false)}
-        let overlayNames = overlays.map {$0.name}.sorted()
+        let overlays = OverlaySheetController.overlays.values.filter { !($0.system ?? false) }
+        let overlayNames = overlays.map { $0.name }.sorted()
         selector.removeAllItems()
         selector.addItems(withTitles: overlayNames)
+        updateURL(self)
     }
 }
