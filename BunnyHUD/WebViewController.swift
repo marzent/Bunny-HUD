@@ -18,7 +18,11 @@ class WebViewController: NSViewController, WKUIDelegate, WKNavigationDelegate, N
     }
    
     override func loadView() {
+        let pool = WKProcessPool()
+        let selector = NSSelectorFromString("_registerURLSchemeAsSecure:")
+        pool.perform(selector, with: NSString(string: "ws"))
         let webConfiguration = WKWebViewConfiguration()
+        webConfiguration.processPool = pool
         webConfiguration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         webConfiguration.preferences.setValue(true, forKey: "javaScriptCanOpenWindowsAutomatically")
         webConfiguration.preferences.setValue(true, forKey: "javaScriptEnabled")
