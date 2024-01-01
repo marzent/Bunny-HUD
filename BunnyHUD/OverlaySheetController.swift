@@ -34,7 +34,7 @@ class OverlaySheetController: NSViewController {
     
     static let systemOverlayURLs = Dictionary(uniqueKeysWithValues: overlays.values
         .filter { $0.system ?? false }
-        .map { ($0.name, OverlayURL(modern: $0.modern, path: $0.httpProxy, options: $0.options)) })
+        .map { ($0.name, OverlayURL(modern: $0.modern, path: $0.url, options: $0.options)) })
     
     fileprivate var selectedOverlay: OverlaysValue? {
         guard let overlayName = selector.titleOfSelectedItem else {
@@ -48,7 +48,7 @@ class OverlaySheetController: NSViewController {
     }
     
     fileprivate func getOverlayURL(from: OverlaysValue) -> OverlayURL {
-        OverlayURL(modern: from.modern, path: from.httpProxy, options: from.options)
+        OverlayURL(modern: from.modern, path: from.url, options: from.options)
     }
     
     @IBAction func okAction(_ sender: Any) {
