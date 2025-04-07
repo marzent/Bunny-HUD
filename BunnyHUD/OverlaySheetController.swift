@@ -6,22 +6,24 @@
 //
 import Cocoa
 
-private struct OverlaysValue: Codable {
-    let name: String
-    let url: String
-    let httpProxy: String
-    let options: String?
-    let modern, cactbot: Bool
-    let system: Bool?
-
-    enum CodingKeys: String, CodingKey {
-        case name, url
-        case httpProxy = "http_proxy"
-        case options, modern, cactbot, system
-    }
+private struct OverlaysContainer: Codable {
+    let version: Int
+    let overlays: [Overlay]
 }
 
-private typealias Overlays = [String: OverlaysValue]
+private struct Overlay: Codable {
+    let name: String
+    let uri: String
+    let plaintextUri: String
+    let features: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case uri
+        case plaintextUri = "plaintext_uri"
+        case features
+    }
+}
 
 class OverlaySheetController: NSViewController {
     @IBOutlet private var okButton: NSButton!
@@ -30,13 +32,14 @@ class OverlaySheetController: NSViewController {
     
     private static let jsonURL = Bundle.main.url(forResource: "overlays", withExtension: "json")!
     private static let jsonData = try! Data(contentsOf: jsonURL)
-    private static let overlays = try! JSONDecoder().decode(Overlays.self, from: jsonData)
+    private static let overlayContainer = try! JSONDecoder().decode(OverlaysContainer.self, from: jsonData)
+    private static let overlays = Dictionary(uniqueKeysWithValues: overlayContainer.overlays.map { ($0.name, $0) })
     
     static let systemOverlayURLs = Dictionary(uniqueKeysWithValues: overlays.values
-        .filter { $0.system ?? false }
-        .map { ($0.name, OverlayURL(modern: $0.modern, path: $0.url, options: $0.options)) })
+        .filter { $0.features.contains("system") }
+        .map { ($0.name, OverlayURL(modern: $0.features.contains("overlay_ws"), path: $0.uri)) })
     
-    fileprivate var selectedOverlay: OverlaysValue? {
+    fileprivate var selectedOverlay: Overlay? {
         guard let overlayName = selector.titleOfSelectedItem else {
             return nil
         }
@@ -47,8 +50,8 @@ class OverlaySheetController: NSViewController {
         return selected
     }
     
-    fileprivate func getOverlayURL(from: OverlaysValue) -> OverlayURL {
-        OverlayURL(modern: from.modern, path: from.url, options: from.options)
+    fileprivate func getOverlayURL(from: Overlay) -> OverlayURL {
+        OverlayURL(modern: from.features.contains("overlay_ws"), path: from.uri)
     }
     
     @IBAction func okAction(_ sender: Any) {
@@ -76,7 +79,7 @@ class OverlaySheetController: NSViewController {
     
     override func viewWillAppear() {
         okButton.isHighlighted = true
-        let overlays = OverlaySheetController.overlays.values.filter { !($0.system ?? false) }
+        let overlays = OverlaySheetController.overlays.values.filter { !($0.features.contains("system")) }
         let overlayNames = overlays.map { $0.name }.sorted()
         selector.removeAllItems()
         selector.addItems(withTitles: overlayNames)

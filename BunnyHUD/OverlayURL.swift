@@ -31,20 +31,18 @@ class OverlayURL: Codable {
         self.options = ""
     }
     
-    init(modern: Bool, path: String, options: String? = nil) {
-        self.modern = modern
-        self.remote = true
-        self.path = path
-        self.folder = ""
-        self.options = options ?? ""
+    convenience init(modern: Bool, path: String) {
+        self.init(modern: modern, path: path, folder: "")
+
     }
     
-    init(modern: Bool, path: String, folder: String, options: String? = nil) {
+    init(modern: Bool, path: String, folder: String) {
         self.modern = modern
-        self.remote = false
-        self.path = path
+        self.remote = folder == ""
+        let parts = path.components(separatedBy: "?")
+        self.path = parts[0]
         self.folder = folder
-        self.options = options ?? ""
+        self.options = parts.count > 1 ? "&" + parts[1] : ""
     }
     
     var ipAddress: String {
